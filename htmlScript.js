@@ -1,4 +1,4 @@
-var text1 = document.getElementById('text1').value //html
+
 //above doesn't work. dunno why. fix later., it's unimportant rn.
 
 var response;
@@ -28,10 +28,12 @@ async function APIUpdate() { //needs search functionality
     data = await response.json() //parses it into a json format in the code
     console.log(data.weather[0].description)
     setAPIShortcuts()
+    document.getElementById('text1').innerHTML = 'weather: ' + data.weather[0].description;
 }
 
 function setAPIShortcuts() {
-
+    localName = data.name
+    console.log(localName)
 
     console.log('data + weather[0].description: ' + data.weather[0].description) //this one works
     text1 = 'current conditions in sydney: ' + data.weather[0].description //html
