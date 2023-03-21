@@ -9,12 +9,18 @@ var data;
 var localName;
 var currentWeather;
 var description;
-var temp;
+var icon;
+var minTemp;
+var maxTemp;
+var currentTemp;
 var feelslike;
 var windSpeed;
+var windDir
 var localTime;
 var humidityPercent;
-var coordinates; //maybe if i have time at the end, show the location on a map? would be cool.
+var LatCoordinates;
+var LonCoordinates;
+//maybe if i have time at the end, show the location on a map? would be cool.
 }
 
 
@@ -29,14 +35,41 @@ async function APIUpdate() { //needs search functionality
     console.log(data.weather[0].description)
     setAPIShortcuts()
     document.getElementById('text1').innerHTML = 'weather: ' + data.weather[0].description;
+    console.log('APIUpdate finished')
 }
 
 function setAPIShortcuts() {
-    localName = data.name
-    console.log(localName)
+    localName = data.name;
+    currentWeather = data.weather[0].main;
+    description = data.weather[0].description;
+    icon = data.weather[0].icon;
+    minTemp = data.main.temp_min;
+    maxTemp = data.main.temp_max;
+    currentTemp = data.main.temp;
+    feelslike = data.main.feels_like;
+    windSpeed = data.wind.speed;
+    windDir = data.wind.deg;
+    localTime = data.dt;
+    humidityPercent = data.main.humidity;
+    LatCoordinates = data.coord.lat;
+    LonCoordinates = data.coord.lon;
+}
 
-    console.log('data + weather[0].description: ' + data.weather[0].description) //this one works
-    text1 = 'current conditions in sydney: ' + data.weather[0].description //html
+function logApiShortcuts() {
+    console.log('localName: ' + localName);
+    console.log('currentWeather: ' + currentWeather);
+    console.log('description: ' + description);
+    console.log('icon: ' + icon);
+    console.log('minTemp: ' + minTemp);
+    console.log('maxTemp: ' + maxTemp);
+    console.log('currentTemp: ' + currentTemp);
+    console.log('feelslike: ' + feelslike);
+    console.log('windSpeed: ' + windSpeed);
+    console.log('windDir: ' + windDir);
+    console.log('localTime: ' + localTime);
+    console.log('humidityPercent: ' + humidityPercent);
+    console.log('LatCoordinates: ' + LatCoordinates);
+    console.log('LonCoordinates: ' + LonCoordinates);
 }
 
 
