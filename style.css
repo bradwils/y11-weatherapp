@@ -1,0 +1,17 @@
+#fixedbar {
+    position: fixed;
+}
+
+.search {
+    width: 1000px;
+    text-align: center;
+}
+
+#searchbar {
+    width: 700px;
+}
+
+#title {
+    width: 400px;
+    text-align: center;
+}
