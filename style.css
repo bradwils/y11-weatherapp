@@ -33,9 +33,10 @@ body {
 }
 
 #headerLogoSearchTable {
-    background-image: linear-gradient(180deg, #420622 40%, #1A9BD2 80%, #3DA5EC, transparent);
+    background-image: linear-gradient(180deg, #710a3a 40%, #1A9BD2 80%, #3DA5EC);
     width: 100%;
     height: 5%;
+    border-bottom: 1px solid black;
 }
 
 #mainWeatherDiv {
