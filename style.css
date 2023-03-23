@@ -1,5 +1,25 @@
 #fixedbar {
     position: fixed;
+    border-bottom: 1px solid black;
+    border: 1px solid black;
+    width: 100%;
+    margin-top: 0%;
+    /* background-image: linear-gradient(red, yellow); */
+}
+
+#bgRed {
+    background-image: red;
+
+}
+
+body {
+    margin: 0;
+    margin-top: 0%;
+    padding: 0;
+}
+
+#appTitle { 
+    margin-left: 90%;
 }
 
 .search {
@@ -8,10 +28,18 @@
 }
 
 #searchbar {
-    width: 700px;
+    width: 30%;
+}
+
+#headerTable {
+    background-image: linear-gradient(to right, #6439b3, #e4cfff, #ffffff);
+    width: 100%;
 }
 
 #title {
     width: 400px;
     text-align: center;
+    border-bottom: 200px;
+    border-collapse: collapse;
+    padding: 10px;
 }
