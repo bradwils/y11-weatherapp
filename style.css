@@ -1,15 +1,20 @@
-#fixedbar {
+#fixedBarLeftDiv {
     position: fixed;
     border-bottom: 1px solid black;
     border: 1px solid black;
-    width: 100%;
+    width: 30%;
     margin-top: 0%;
     /* background-image: linear-gradient(red, yellow); */
 }
 
-#bgRed {
-    background-image: red;
-
+#fixedBarRightDiv {
+    position: fixed;
+    border-bottom: 1px solid black;
+    border: 1px solid black;
+    width: 30%;
+    margin-top: 0%;
+    float: right;
+    /* background-image: linear-gradient(red, yellow); */
 }
 
 body {
@@ -18,23 +23,33 @@ body {
     padding: 0;
 }
 
-#appTitle { 
-    margin-left: 90%;
-}
 
 .search {
     width: 1000px;
     text-align: center;
 }
 
+#headerLogo {
+    height: 150px;
+    padding-right: 0%;
+    float:right
+}
+
 #searchbar {
     width: 30%;
 }
 
-#headerTable {
+#headerLogoSearchTable {
     background-image: linear-gradient(to right, #6439b3, #e4cfff, #ffffff);
-    width: 100%;
+    width: 50%;
+    height: 5%;
 }
+
+#currentWeatherTable {
+    background-image: linear-gradient(to right, #6439b3, #e4cfff, #ffffff);
+    width: 50%;
+    height: 5%;
+    float: right;
 
 #title {
     width: 400px;
