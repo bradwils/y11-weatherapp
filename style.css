@@ -40,5 +40,9 @@ body {
 
 #mainWeatherDiv {
     background-color: #3DA5EC;
+    min-height: 1920px;
 }
 
+html {
+    max-height: 100%;
+}
