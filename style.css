@@ -1,19 +1,7 @@
-#fixedBarLeftDiv {
-    position: fixed;
-    border-bottom: 1px solid black;
-    border: 1px solid black;
-    width: 30%;
+#fixedBarDiv {
+    border: 0px solid black;
+    width: 100%;
     margin-top: 0%;
-    /* background-image: linear-gradient(red, yellow); */
-}
-
-#fixedBarRightDiv {
-    position: fixed;
-    border-bottom: 1px solid black;
-    border: 1px solid black;
-    width: 30%;
-    margin-top: 0%;
-    float: right;
     /* background-image: linear-gradient(red, yellow); */
 }
 
@@ -21,6 +9,12 @@ body {
     margin: 0;
     margin-top: 0%;
     padding: 0;
+}
+
+.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
 }
 
 
@@ -32,7 +26,6 @@ body {
 #headerLogo {
     height: 150px;
     padding-right: 0%;
-    float:right
 }
 
 #searchbar {
@@ -40,14 +33,13 @@ body {
 }
 
 #headerLogoSearchTable {
-    background-image: linear-gradient(to right, #6439b3, #e4cfff, #ffffff);
-    width: 50%;
+    background-image: linear-gradient(180deg, #420622 40%, #1A9BD2 80%, #3DA5EC, transparent);
+    width: 100%;
     height: 5%;
 }
 
 #mainWeatherDiv {
     background-color: #3DA5EC;
-    min-height: 1920px;
 }
 
 html {
