@@ -2,7 +2,15 @@
     border: 0px solid black;
     width: 100%;
     margin-top: 0%;
+    height: 50vh;
     /* background-image: linear-gradient(red, yellow); */
+}
+
+html {
+    padding: 0px;
+    margin: 0px;
+    border-color: black;
+    outline-color: black;
 }
 
 body {
@@ -11,20 +19,19 @@ body {
     padding: 0;
 }
 
-.sticky {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-}
-
 
 .search {
     width: 1000px;
     text-align: center;
 }
 
+td {
+    height: 50%;
+}
+
+
 #headerLogo {
-    height: 150px;
+    height: 20vh;
     padding-right: 0%;
 }
 
@@ -35,14 +42,23 @@ body {
 #headerLogoSearchTable {
     background-image: linear-gradient(180deg, #710a3a 40%, #1A9BD2 80%, #3DA5EC);
     width: 100%;
-    height: 5%;
     border-bottom: 1px solid black;
 }
 
 #mainWeatherDiv {
     background-color: #3DA5EC;
+    height:80vh;
+    /* height: calc(100% - 200px); */
+    /* THE PX VALUE HERE IS EQUAL TO THE HEIGHT OF THE headerLogo  */
+
 }
 
 html {
     max-height: 100%;
+}
+
+
+#tests {
+/* make sure it is at least as tall as the viewport */
+    position:relative;
 }
