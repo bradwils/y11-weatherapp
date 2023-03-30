@@ -19,7 +19,6 @@ body {
     padding: 0;
 }
 
-
 .search {
     width: 1000px;
     text-align: center;
@@ -28,7 +27,6 @@ body {
 td {
     height: 50%;
 }
-
 
 #headerLogo {
     height: 20vh;
@@ -56,7 +54,6 @@ td {
 html {
     max-height: 100%;
 }
-
 
 #tests {
 /* make sure it is at least as tall as the viewport */
