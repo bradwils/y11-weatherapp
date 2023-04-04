@@ -17,6 +17,9 @@ function getBar() {
     else if (barInput == 'api') {
         APIUpdate();
     }
+
+
+    document.getElementById('searchbar').value = '';
 }
 
 
