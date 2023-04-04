@@ -28,14 +28,26 @@ var response = '';
 var data = '';
 var url = 'https://api.openweathermap.org/data/2.5/weather?q=marrickville&appid=de4315905984c51cb8f1bb4c23c949c0&units=metric';
 
+
+// var url = 'https://api.openweathermap.org/data/2.5/weather?q=jgbuifgh&appid=de4315905984c51cb8f1bb4c23c949c0&units=metric';
+
+
+
 async function APIUpdate() { //needs search functionality
     console.log('APIUpdate started')
-    response = await fetch(url);  //fetchs the info from api
-    data = await response.json() //parses it into a json format in the code
-    console.log(data.weather[0].description)
+    response = await fetch(url);  //fetchs the info from api, and it's been 'promised' a response from the api, and waits for it. when it's been recieved, it will continue to the next line.
+    data = await response.json() //await means that it has been 'promised' a response of data, which is currently being converted form plain text into a json format (readable by computer)e
+    console.log('data gotten') //now that it's progressed to this line, the 'promise' has been fulfilled, and the data is ready.
+
+    if (data.cod == 404) {
+        console.log('404 error') 
+        alert('Invalid location. Please check the spelling and try again.')
+        return;
+    }
+
     setAPIShortcuts()
-    document.getElementById('text1').innerHTML = 'weather: ' + data.weather[0].description;
     console.log('APIUpdate finished')
+    logApiShortcuts()
 }
 
 function setAPIShortcuts() {
@@ -71,7 +83,4 @@ function logApiShortcuts() {
     console.log('LatCoordinates: ' + LatCoordinates);
     console.log('LonCoordinates: ' + LonCoordinates);
 }
-
-
-
 //status:

@@ -13,11 +13,11 @@
         <table id="headerLogoSearchTable">
             <tr>
                 <td>
-                        <img id="headerLogo" src="/ASSETS/weatherapp Logo.png" alt="">
+                    <img id="headerLogo" src="Website Assets/weatherapp Logo.png" alt="">
                     </td>
                     <td class="search">
                         <input id="searchbar"></input>
-                        <button>Go!</button>
+                        <button onclick="getBar()">Go!</button>
                 </td>
             </tr>
         </table>
@@ -25,9 +25,14 @@
 
 
     <div id="mainWeatherDiv">
-
+        <canvas id="canvas">
+            
+        </canvas>
     </div>
 
 </body>
+<script src="canvasScript.js"></script>
+<script src="htmlScript.js" ></script>
+<script src="getBarInput.js"></script>
 
 </html>

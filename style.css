@@ -1,3 +1,21 @@
+
+/* CANVAS CSS */
+
+canvas {
+    border: 1px solid #82d5f8;
+    height: (50%);
+    width: 80%;
+    max-height: 75vh;
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: #3DA5EC;
+}
+
+
+
+
+
+
 #fixedBarDiv {
     border: 0px solid black;
     width: 100%;
@@ -13,10 +31,17 @@ html {
     outline-color: black;
 }
 
+
+
 body {
     margin: 0;
     margin-top: 0%;
     padding: 0;
+}
+
+#weatherCanvas {
+    height: inherit;
+    width: inherit;
 }
 
 
@@ -40,14 +65,16 @@ td {
 }
 
 #headerLogoSearchTable {
-    background-image: linear-gradient(180deg, #710a3a 40%, #1A9BD2 80%, #3DA5EC);
+    background-image: linear-gradient(180deg, black 40%, #1A9BD2 80%, #3DA5EC);
     width: 100%;
-    border-bottom: 1px solid black;
+    height: 50%;
+    border-bottom: 0px solid black;
 }
 
 #mainWeatherDiv {
     background-color: #3DA5EC;
     height:80vh;
+    width: 100%;
     /* height: calc(100% - 200px); */
     /* THE PX VALUE HERE IS EQUAL TO THE HEIGHT OF THE headerLogo  */
 
