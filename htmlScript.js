@@ -20,13 +20,13 @@ var localTime;
 var humidityPercent;
 var LatCoordinates;
 var LonCoordinates;
+
 //maybe if i have time at the end, show the location on a map? would be cool.
 }
 
-
 var response = '';
 var data = '';
-var url = 'https://api.openweathermap.org/data/2.5/weather?q=marrickville&appid=de4315905984c51cb8f1bb4c23c949c0&units=metric';
+var url = 'https://api.openweathermap.org/data/2.5/weather?q=sydney&appid=de4315905984c51cb8f1bb4c23c949c0&units=metric';
 
 
 // var url = 'https://api.openweathermap.org/data/2.5/weather?q=jgbuifgh&appid=de4315905984c51cb8f1bb4c23c949c0&units=metric';

@@ -1,2 +1,5 @@
 In apiscript; under the weather (path: data.weather), you then need to focus the array #0, so to be able to specify 
 for further information from it, you need to do daata.weather[0].etc.
+
+
+the canvas uses it's own weird little pixel system to move things, so it's differnet to the reported pixel size from the html element.

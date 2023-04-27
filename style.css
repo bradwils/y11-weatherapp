@@ -3,16 +3,14 @@
 
 canvas {
     border: 1px solid #82d5f8;
-    height: (50%);
-    width: 80%;
-    max-height: 75vh;
+    /* height: 1080px;
+    width: 1920px; */
+    max-height: 70vh;
+    max-width: 80vw;
     margin-left: 10%;
     margin-right: 10%;
     background-color: #3DA5EC;
 }
-
-
-
 
 
 
