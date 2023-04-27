@@ -42,7 +42,13 @@ function getBar() {
     document.getElementById('searchbar').value = '';
 }
 
-
 function help() {
     console.log('commands: ' + cmds)
 }
+
+barInput.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        document.getElementById('searchBtn').click();
+      }
+});
