@@ -46,6 +46,7 @@ function help() {
     console.log('commands: ' + cmds)
 }
 
+barInput = document.getElementById("searchbar")
 barInput.addEventListener("keypress", function(event) {
     if (event.key === "Enter") {
         event.preventDefault();
