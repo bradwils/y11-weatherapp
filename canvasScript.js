@@ -22,7 +22,7 @@ function getCanvasSize() {
 
 }
 
-function updateCanvas() {
+function updateCanvas() { //penis
 
     ratio = 20 / canvas.width;
     fontSize = 1920 * ratio
@@ -49,5 +49,5 @@ function changeWidth(newWidth) {
 
 
 
-setInterval(doFrames, 1000/60);
-// ABOVE: this will run a frame at 60fps. in that functio (which ins't real yet), make it check if 'canvasRunning == true', and if so run. have another button on the page to make it false, and if it's false it'll stop the function.
+// setInterval(doFrames, 1000/60);
+// ABOVE: this will run a frame at 60fps. in that function (which ins't real yet), make it check if 'canvasRunning == true', and if so run. have another button on the page to make it false, and if it's false it'll stop the function.
