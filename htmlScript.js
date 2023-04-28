@@ -26,16 +26,20 @@ var LonCoordinates;
 
 var response = '';
 var data = '';
-var url = 'https://api.openweathermap.org/data/2.5/weather?q=sydney&appid=de4315905984c51cb8f1bb4c23c949c0&units=metric';
+var apiURL = 'https://api.openweathermap.org/data/2.5/weather?q=sydney&appid=de4315905984c51cb8f1bb4c23c949c0&units=metric';
+var urlPart1 = 'https://api.openweathermap.org/data/2.5/weather?q='
+var urlPart2 = '&appid=de4315905984c51cb8f1bb4c23c949c0&units=metric'
 
 
 // var url = 'https://api.openweathermap.org/data/2.5/weather?q=jgbuifgh&appid=de4315905984c51cb8f1bb4c23c949c0&units=metric';
 
 
 
-async function APIUpdate() { //needs search functionality
+async function APIUpdate(location) { //needs search functionality
     console.log('APIUpdate started')
-    response = await fetch(url);  //fetchs the info from api, and it's been 'promised' a response from the api, and waits for it. when it's been recieved, it will continue to the next line.
+    apiURL = urlPart1 + location + urlPart2;
+    console.log('apiURL: '+ apiURL)
+    response = await fetch(apiURL);  //fetchs the info from api, and it's been 'promised' a response from the api, and waits for it. when it's been recieved, it will continue to the next line.
     data = await response.json() //await means that it has been 'promised' a response of data, which is currently being converted form plain text into a json format (readable by computer)e
     console.log('data gotten') //now that it's progressed to this line, the 'promise' has been fulfilled, and the data is ready.
 

@@ -1,7 +1,7 @@
 // gets search bar input, and based of that we'll make it run commands. this is for testing purposes with the canvas.
 // it automatically CONVERTS THE INPUT into LOWERCASE, so MAKE SURE to write you 'checks' in LOWERCASE.
 
-var cmds = ['help', 'size', 'api', 'update canvas', 'stylewidth', 'newframe', 'width' ]
+var cmds = ['help', 'size', 'update canvas', 'stylewidth', 'newframe', 'width' ]
 var barInput;
 
 function getBar() {
@@ -18,10 +18,6 @@ function getBar() {
         getCanvasSize();
         console.log('ran canvas size')
     } 
-    else if (splitInput[0] == 'api') {
-        APIUpdate(splitInput[1]);
-        console.log('ran api')
-    }
     else if (barInput == 'update canvas') {
         updateCanvas();
     }
@@ -46,10 +42,12 @@ function getBar() {
     document.getElementById('searchbar').value = '';
 }
 
+
 function help() {
     console.log('commands: ' + cmds)
 }
 
+barInput = document.getElementById("searchbar")
 barInput.addEventListener("keypress", function(event) {
     if (event.key === "Enter") {
         event.preventDefault();
