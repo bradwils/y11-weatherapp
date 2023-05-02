@@ -2,13 +2,15 @@
 // draw is the context.  .fillRect just means to 'fill a rectangle shape'       x-coord 100, y-coord 100         width 100, height 100.  all in pixels.
     // draw                    .fillRect                                                   (100, 100,                      100, 100);
 
-    const darkcloudsHTML = document.getElementById('cloudsIMG')
-
 var canvas = document.querySelector('canvas')
 var ctx = canvas.getContext('2d')
 
 var draw = canvas.getContext('2d')
 var mainWeatherText = canvas.getContext('2d')
+
+//DEFINING IMAGES
+const blueCloundImg = new Image()
+const lightning1 = new Image()
 
 canvas.width = 1920;
 canvas.height = 1080;
@@ -22,18 +24,18 @@ function getCanvasSize() {
 
 }
 
+function loadImages() {
+    blueCloundImg.src = "Website Assets/bluecloud.png"
+
+}
+
 function updateCanvas() {
     // mainWeatherText.font = (fontSize|0) + 'px Arial'; //i dont think this is needed?
     mainWeatherText.font = "20px Arial";
 
     
-    mainWeatherText.fillText('yo whats good champion', 1800, 100)
-
-
-    const blueCloundImg = new Image();
-    blueCloundImg.src = 'Website Assets/bluecloud.png'
-    // ctx.drawImage(blueCloundImg, 100, 100)
-    ctx.drawImage(darkcloudsHTML, 100, 100)
+    mainWeatherText.fillText('yo whats good champion', 1900, 100)
+    ctx.drawImage(blueCloundImg, 100, 100)
 
     //RIGHT NOW!!!!!!!!!! THE ONLY WAY I'VE GOTTEN THE IMAGES TO LOAD IS BY PUTTING THEM ON THE PAGE (WITH 0 WIDTH AND HEIGHT SO ITS INVISBLE) AND THEN REFERENCING IT WITH THE DOCUMENT.GETLEMENTBYID THING TO PULL THE IMAGE AND ASSIGN IT TO THE CONST 'darkcloudsHTML', so i just draw that image on the canvas instead. this is a terribel strategy but it might just be what i gotta do.
 
