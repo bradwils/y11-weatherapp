@@ -2,37 +2,43 @@
 // draw is the context.  .fillRect just means to 'fill a rectangle shape'       x-coord 100, y-coord 100         width 100, height 100.  all in pixels.
     // draw                    .fillRect                                                   (100, 100,                      100, 100);
 
+    const darkcloudsHTML = document.getElementById('cloudsIMG')
+
 var canvas = document.querySelector('canvas')
 var ctx = canvas.getContext('2d')
 
 var draw = canvas.getContext('2d')
-
-var drawWeatherText = canvas.getContext('2d')
+var mainWeatherText = canvas.getContext('2d')
 
 canvas.width = 1920;
 canvas.height = 1080;
+ratio = 20 / canvas.width; // these two lines make sure that when you are drawing images, the location matches up with the canvas' internal resolution, which
+fontSize = 1920 * ratio    // is different to the displayed one that you see on the page. these calculations is what compensates for the error to correct it.
 
 function getCanvasSize() {
-
-    canvasWidth = Math.floor(canvas.getBoundingClientRect().width); //THESE ARE RELATIVE TO HTML, NOT THE ACTUAL CANVAS' CALCULATING DIMENSIONS
-    canvasHeight = Math.floor(canvas.getBoundingClientRect().height); //THESE ARE RELATIVE TO HTML, NOT THE ACTUAL CANVAS' CALCULATING DIMENSIONS
 
     console.log('canvasWidth: ' + canvasWidth)
     console.log('canvasHeight: ' + canvasHeight)
 
 }
 
-function updateCanvas() { //penis
+function updateCanvas() {
+    // mainWeatherText.font = (fontSize|0) + 'px Arial'; //i dont think this is needed?
+    mainWeatherText.font = "20px Arial";
 
-    ratio = 20 / canvas.width;
-    fontSize = 1920 * ratio
+    
+    mainWeatherText.fillText('yo whats good champion', 1800, 100)
 
-    drawWeatherText.font = (fontSize|0) + 'px Arial';
-    drawWeatherText.font = "20px Arial";
 
-drawWeatherText.fillText('yo whats good champion', 500, 100)
+    const blueCloundImg = new Image();
+    blueCloundImg.src = 'Website Assets/bluecloud.png'
+    // ctx.drawImage(blueCloundImg, 100, 100)
+    ctx.drawImage(darkcloudsHTML, 100, 100)
 
-console.log('canvas updated')
+    //RIGHT NOW!!!!!!!!!! THE ONLY WAY I'VE GOTTEN THE IMAGES TO LOAD IS BY PUTTING THEM ON THE PAGE (WITH 0 WIDTH AND HEIGHT SO ITS INVISBLE) AND THEN REFERENCING IT WITH THE DOCUMENT.GETLEMENTBYID THING TO PULL THE IMAGE AND ASSIGN IT TO THE CONST 'darkcloudsHTML', so i just draw that image on the canvas instead. this is a terribel strategy but it might just be what i gotta do.
+
+
+    console.log('canvas updated')
 }
 
 

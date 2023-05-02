@@ -46,7 +46,9 @@ async function APIUpdate(location) { //needs search functionality
     if (data.cod == 404) {
         console.log('404 error') 
         alert('Invalid location. Please check the spelling and try again.')
-        return;
+        document.getElementById('searchBtn').innerHTML = 'Error!'
+        document.getElementById('searchBtn').value = ''
+        //here, figure out how to change the placeholder in the text bar to 'check spelling for errors!'
     }
 
     setAPIShortcuts()
