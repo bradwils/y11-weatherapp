@@ -5,6 +5,7 @@ var recentDisplay = document.getElementById("recentResult");
 window.onload(clearRecent())
 
 function clearRecent() {
+    document.getElementById("recentResult").disabled = true;
     for (i = 0; i < 10; i++) {
         recent[i] = "";
     }
@@ -24,15 +25,15 @@ function getBar() {
     recent[1] = recent[0];
     recent[0] = recentInput;
 
-    recentDisplay.innerHTML = recent[0] +
-    "\n" + recent[1] +
-    "\n" + recent[2] +
-    "\n" + recent[3] +
-    "\n" + recent[4] +
-    "\n" + recent[5] +
-    "\n" + recent[6] +
-    "\n" + recent[7] +
-    "\n" + recent[8] +
-    "\n" + recent[9];
-
+    recentDisplay.innerHTML = "Recent searches ----> " +
+    "\n" + " " + recent[0] +
+    "\n" + " " + recent[1] +
+    "\n" + " " + recent[2] +
+    "\n" + " " + recent[3] +
+    "\n" + " " + recent[4] +
+    "\n" + " " + recent[5] +
+    "\n" + " " + recent[6] +
+    "\n" + " " + recent[7] +
+    "\n" + " " + recent[8] +
+    "\n" + " " + recent[9];
 }

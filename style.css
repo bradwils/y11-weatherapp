@@ -92,3 +92,12 @@ html {
     width: 47px;
     height: 25px;
 }
+
+#recentResult {
+    height: 180px;
+    resize: none;
+}
+
+#recentTab {
+    text-align: center;
+}
