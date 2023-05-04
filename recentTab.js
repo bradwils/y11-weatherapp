@@ -2,7 +2,6 @@ var recent = [];
 var recentInput;
 var recentDisplay = document.getElementById("recentResult");
 
-window.onload(clearRecent())
 
 function clearRecent() {
     document.getElementById("recentResult").disabled = true;
@@ -37,3 +36,5 @@ function getBar() {
     "\n" + " " + recent[8] +
     "\n" + " " + recent[9];
 }
+
+// clearRecent();
