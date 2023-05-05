@@ -4,7 +4,7 @@
 var cmds = ['help', 'size', 'update canvas', 'stylewidth', 'newframe', "width (don't bother with it rn)" ]
 var barInput;
 
-function getBar() {
+function debugGetBar() {
 
     barInput = (document.getElementById('searchbar').value).toLowerCase();
     splitInput = barInput.split(' ');
@@ -32,6 +32,10 @@ function getBar() {
     else if (splitInput[0] == 'width') {
         changeWidth(splitInput[1]);
         console.log('ran width')
+    }
+    else if (splitInput[0] == 'rain') {
+        changeWeather('rain');
+        console.log('ran changeWeather')
     }
     else {
         APIUpdate(barInput)

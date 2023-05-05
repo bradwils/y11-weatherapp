@@ -9,7 +9,6 @@
 
 <body>
     <!-- this div is the top of the page, the header with thte search bar. -->
-    <div id="tests">
         <table id="headerLogoSearchTable">
             <tr>
                 <td>
@@ -17,17 +16,19 @@
                     </td>
                     <td class="search">
                         <input id="searchbar"></input>
-                        <button id="searchBtn" onclick="getBar()">Go!</button>
+                        <button id="searchBtn" onclick="debugGetBar()">Go!</button>
+                        <!--  in the final version, remove the debug code and change naem to 'getWeatherSearch;' -->
                 </td>
             </tr>
         </table>
-    </div>
 
     <div id="mainWeatherDiv">
         <canvas id="canvas">
-            
+            <p>text</p>
         </canvas>
-        <p style="text-align: center;">CANVAS IS 1920X1080</p>
+        <div id="recentWeatherDiv">
+            <p>text</p>
+        </div> 
     </div>
     
     <br>

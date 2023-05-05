@@ -8,7 +8,6 @@ canvas {
     max-height: 70vh;
     max-width: 80vw;
     margin-left: 10%;
-    margin-right: 10%;
     /* background-color: #3DA5EC; */
     background-color: #194461;
 
@@ -69,19 +68,27 @@ td {
     background-color: #3DA5EC;
     height:80vh;
     width: 100%;
-    /* height: calc(100% - 200px); */
-    /* THE PX VALUE HERE IS EQUAL TO THE HEIGHT OF THE headerLogo  */
+    max-height: 80vh;
+    /* overflow:hidden; */
+    /* if overflow is hidden, then any overflowing elements (like the recentWeatherDiv when the dev console is open) will simply not be shown instead of extending the page. */
+    float: left;
+}
+
+#recentWeatherDiv {
+    border: 1px solid black;
+    float: right;
+    height: 60%;
+    width: 15%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    margin-right: 5%
 
 }
+    
 
 html {
-    max-height: 100%;
-}
-
-#tests {
-/* make sure it is at least as tall as the viewport */
-    position:relative;
-}
+    max-height: 100vh;
+} 
 
 #searchBtn {
     width: 40px;

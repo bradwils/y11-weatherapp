@@ -15,7 +15,7 @@ var maxTemp;
 var currentTemp;
 var feelslike;
 var windSpeed;
-var windDir
+var windDir;
 var localTime;
 var humidityPercent;
 var LatCoordinates;
@@ -48,11 +48,12 @@ async function APIUpdate(location) { //needs search functionality
         alert('Invalid location. Please check the spelling and try again.')
         document.getElementById('searchBtn').value = ''
         //here, figure out how to change the placeholder in the text bar to 'check spelling for errors!'
-    }
+    } else {
 
-    setAPIShortcuts()
-    console.log('APIUpdate finished')
-    logApiShortcuts()
+        setAPIShortcuts()
+        console.log('APIUpdate finished')
+        logApiShortcuts()
+    }
 }
 
 function setAPIShortcuts() {
