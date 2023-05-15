@@ -2,14 +2,13 @@
 /* CANVAS CSS */
 
 canvas {
-    border: 1px solid #82d5f8;
     /* height: 1080px;
     width: 1920px; */
     max-height: 70vh;
     max-width: 80vw;
     margin-left: 10%;
     /* background-color: #3DA5EC; */
-    background-color: #194461;
+    background-color: #cf00f9;
 
 }
 

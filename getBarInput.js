@@ -1,7 +1,7 @@
 // gets search bar input, and based of that we'll make it run commands. this is for testing purposes with the canvas.
 // it automatically CONVERTS THE INPUT into LOWERCASE, so MAKE SURE to write you 'checks' in LOWERCASE.
 
-var cmds = ['help', 'size', 'update canvas', 'stylewidth', 'newframe', "width (don't bother with it rn)" ]
+var cmds = ['help', 'size', 'update', 'stylewidth', 'newframe', "width (don't bother with it rn)" ]
 var barInput;
 var recent = [];
 var recentInput;
@@ -27,7 +27,7 @@ function debugGetBar() {
         getCanvasSize();
         console.log('ran canvas size')
     } 
-    else if (barInput == 'update canvas') {
+    else if (barInput == 'update') {
         updateCanvas();
     }
     else if (barInput == 'stylewidth') {

@@ -1,26 +1,26 @@
 <!DOCTYPE html>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather App</title>
-    <link rel="stylesheet" href="style.css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weather App</title>
+<link rel="stylesheet" href="style.css">
 </head>
 
 
 
 <body onload="clearRecent()">
     <!-- this div is the top of the page, the header with thte search bar. -->
-        <table id="headerLogoSearchTable">
-            <tr>
-                <td>
-                    <img id="headerLogo" src="Website Assets/weatherapp Logo.png" alt="">
-                    </td>
-                    <td class="search">
-                        <input id="searchbar"></input>
-                        <button id="searchBtn" onclick="debugGetBar()">Go!</button>
-                        <!--  in the final version, remove the debug code and change naem to 'getWeatherSearch;' -->
-                </td>
-            </tr>
-        </table>
+    <table id="headerLogoSearchTable">
+        <tr>
+            <td>
+                <img id="headerLogo" src="Website Assets/weatherapp Logo.png" alt="">
+            </td>
+            <td class="search">
+                <input id="searchbar"></input>
+                <button id="searchBtn" onclick="debugGetBar()">Go!</button>
+                <!--  in the final version, remove the debug code and change naem to 'getWeatherSearch;' -->
+            </td>
+        </tr>
+    </table>
 
     <div id="mainWeatherDiv">
         <canvas id="canvas">
@@ -32,13 +32,13 @@
             </div>
         </div> 
     </div>
-    
+
     <br>
 
     <br>
 
 </body>
 <script src="canvasScript.js"></script>
-<script src="htmlScript.js" ></script>
+<script src="htmlScript.js"></script>
 <script src="getBarInput.js"></script>
 </html>
