@@ -7,7 +7,7 @@
 
 
 
-<body>
+<body onload="clearRecent()">
     <!-- this div is the top of the page, the header with thte search bar. -->
         <table id="headerLogoSearchTable">
             <tr>
@@ -27,15 +27,13 @@
             <p>text</p>
         </canvas>
         <div id="recentWeatherDiv">
-            <p>text</p>
+            <div id="recentTab">
+                <textarea id="recentResult"></textarea>
+            </div>
         </div> 
     </div>
     
     <br>
-
-    <div id="recentTab">
-        <textarea id="recentResult"></textarea>
-    </div>
 
     <br>
 
@@ -43,5 +41,4 @@
 <script src="canvasScript.js"></script>
 <script src="htmlScript.js" ></script>
 <script src="getBarInput.js"></script>
-<script src="recentTab.js"></script>
 </html>
