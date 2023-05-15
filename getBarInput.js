@@ -2,7 +2,7 @@
 // it automatically CONVERTS THE INPUT into LOWERCASE, so MAKE SURE to write you 'checks' in LOWERCASE.
 
 var cmds = ['help', 'size', 'update', 'stylewidth', 'newframe', "width (don't bother with it rn)" ]
-var barInput;
+var barInput; //this is the input put into LOWERCASE
 var recent = [];
 var recentInput;
 var recentDisplay = document.getElementById("recentResult");
@@ -50,11 +50,16 @@ function debugGetBar() {
         APIUpdate(barInput)
         console.log('APIUpdate ran')
     }
+    recentInput = document.getElementById("searchbar").value; //for recent searches
+    document.getElementById('searchbar').value = ''; //last action is the searchbar being cleared.
 
-    recentInput = document.getElementById("searchbar").value;
+}
 
-    document.getElementById('searchbar').value = '';
-    
+function help() {
+    console.log('commands: ' + cmds)
+}
+
+function updateRecentList() { //defines the function to update the recent searches. Leaving this here since it's most relevent (instead of cluttering the htmlscript), but it gets called on the htmlscript after a successful request is sent through.
     recent[9] = recent[8];
     recent[8] = recent[7];
     recent[7] = recent[6];
@@ -79,16 +84,9 @@ function debugGetBar() {
     "\n" + " " + recent[9];
 }
 
-
-function help() {
-    console.log('commands: ' + cmds)
-}
-
 barInput = document.getElementById("searchbar")
 barInput.addEventListener("keypress", function(event) {
-    if (event.key === "Enter") {
-        event.preventDefault();
-        document.getElementById('searchBtn').click();
-        document.getElementById('searchbar').value = "";
+    if (event.key === "Enter") { //if enter key is pressed
+        document.getElementById('searchBtn').click(); //just clicks the search button
       }
 });

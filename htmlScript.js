@@ -48,11 +48,19 @@ async function APIUpdate(location) { //needs search functionality
         alert('Invalid location. Please check the spelling and try again.')
         document.getElementById('searchBtn').value = ''
         //here, figure out how to change the placeholder in the text bar to 'check spelling for errors!'
-    } else {
-
+    } else { //IF NO ERROR CODE, IE THE REQUEST IS SUCCESSFUL
+        for (i=0; i < 9; i++) {  // 10 times (for earch history array entry)
+            //check above logic another time i feel like its off
+            if (recentInput.toLowerCase() == recent[i].toLowerCase()) { //if they are equal (make lowercase to make sure caps arent an issue)
+                break; //break
+            }  
+        }
+        if (i == 9) { //if it has run 9 times (ie it's run everytime without breaking due to a match)
+            updateRecentList() //update recent list
+        }
         setAPIShortcuts()
         console.log('APIUpdate finished')
-        logApiShortcuts()
+        // logApiShortcuts()
     }
 }
 
