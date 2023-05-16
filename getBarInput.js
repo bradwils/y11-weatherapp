@@ -42,11 +42,17 @@ function debugGetBar() {
         changeWidth(splitInput[1]);
         console.log('ran width')
     }
-    else if (splitInput[0] == 'rain') {
-        changeWeather('rain');
-        console.log('ran changeWeather')
+    else if (splitInput[0] == 'weather') {
+        changeWeather(splitInput[1]);
+        console.log('ran changeWeather with the param ' + splitInput[1])
     }
-    else {
+    
+    //TEMPORARY ENTRY WHILE I GET SNOW TO WORK
+
+    else if (barInput == 'snow') {
+        snowParticles()
+        console.log('ran snowParticles')
+    } else {
         APIUpdate(barInput)
         console.log('APIUpdate ran')
     }

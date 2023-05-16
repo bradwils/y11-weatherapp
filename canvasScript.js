@@ -9,7 +9,6 @@ var draw = canvas.getContext('2d')
 var mainWeatherText = canvas.getContext('2d')
 
 //DEFINING IMAGES
-const blueCloundImg = new Image();
 const lightning1 = new Image();
 const rainyClouds = new Image();
 const thunderClouds = new Image();
@@ -27,7 +26,6 @@ function getCanvasSize() {
 }
 
 function loadImages() {
-    blueCloundImg.src = "Canvas Assets/bluecloud.png"
     lightning1.src = "Canvas Assets/lightning 600.png"
     rainyClouds.src = "Canvas Assets/rainyclouds.png"
     thunderClouds.src = "Canvas Assets/thunderClouds.png"
@@ -41,11 +39,9 @@ function updateCanvas() {
 
     
     // mainWeatherText.fillText('yo whats good champion', 1900, 100)
-    // ctx.drawImage(blueCloundImg, 100, 100)
     // ctx.drawImage(lightning1, 100, 100)
     // ctx.drawImage(rainyClouds, 0, 0)
     ctx.drawImage(thunderClouds, 0, 0)
-
     console.log('canvas updated')
 }
 
@@ -64,7 +60,46 @@ function changeWidth(newWidth) {
 
 
 function changeWeather(weather) {
-    console.log('changing weather to ' + weather)
+    switch (weather) { //using the passed parameter 'weather'
+        case 'rain': //if weather = rain'
+            console.log('rain');
+            break; //stop checking
+        case 'thunder':
+            console.log('thunder')
+            break;
+        case 'snow':
+            console.log('snow')
+            break;
+    }
+}
+
+function snowParticles() {
+    ctx.fillStyle = "#000000";
+    ctx.arc(100, 200, 500, 0, 5 * Math.PI)
+
+
+
+
+
+
+
+
+//so, draw this a bunch of times ctx.arc(100, 200, 50, 0, 5 * Math.PI);
+// but for each, instead of having values, have like xPos[0], xPos[1], xPos[2], etc.
+// in a diff var, update the values of these (ie a for loop that for (i=0, i>4 [or however many snowflakes there are], i++) {
+//      yPos[i] = yPos - 10 (or whatever amount of pixels you want it to move per frame)
+//      xPos[i] = xPos - 10 (or whatever amount of pixels you want it to move per frame)
+//  }
+//  then, redraw the snowflakes
+//  so, draw this a bunch of times ctx.arc(xPos[0], yPos[1], 50, 0, 5 * Math.PI);
+// and have anm indivudal check for each to see if the height exceeds 1920, and set it back to 100 with a randomized x position.
+
+
+//}
+
+
+
+
 }
 
 // setInterval(doFrames, 1000/60);
