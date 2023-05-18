@@ -7,11 +7,14 @@ var ctx = canvas.getContext('2d')
 
 var draw = canvas.getContext('2d')
 var mainWeatherText = canvas.getContext('2d')
+var snow = canvas.getContext('2d')
 
 //DEFINING IMAGES
 const lightning1 = new Image();
 const rainyClouds = new Image();
 const thunderClouds = new Image();
+const snowClouds = new Image();
+const standardClouds = new Image();
 
 canvas.width = 1920;
 canvas.height = 1080;
@@ -20,8 +23,8 @@ fontSize = 1920 * ratio    // is different to the displayed one that you see on 
 
 function getCanvasSize() {
 
-    console.log('canvasWidth: ' + canvasWidth)
-    console.log('canvasHeight: ' + canvasHeight)
+    console.log('canvasWidth: ' + canvasWidth);
+    console.log('canvasHeight: ' + canvasHeight);
 
 }
 
@@ -29,6 +32,8 @@ function loadImages() {
     lightning1.src = "Canvas Assets/lightning 600.png"
     rainyClouds.src = "Canvas Assets/rainyclouds.png"
     thunderClouds.src = "Canvas Assets/thunderClouds.png"
+    snowClouds.src = "Canvas Assets/snowclouds.png"
+    standardClouds.src = "Canvas Assets/cloudy.png"
 
     console.log('images loaded')
 }
@@ -41,7 +46,8 @@ function updateCanvas() {
     // mainWeatherText.fillText('yo whats good champion', 1900, 100)
     // ctx.drawImage(lightning1, 100, 100)
     // ctx.drawImage(rainyClouds, 0, 0)
-    ctx.drawImage(thunderClouds, 0, 0)
+    // ctx.drawImage(thunderClouds, 0, 0)
+    ctx.drawImage(snowClouds, 0, 0)
     console.log('canvas updated')
 }
 
@@ -74,11 +80,14 @@ function changeWeather(weather) {
 }
 
 function snowParticles() {
-    ctx.fillStyle = "#000000";
-    ctx.arc(100, 200, 500, 0, 5 * Math.PI)
+    snow.fillStyle = "#000000";
+    snow.beginPath();
+    snow.arc(100, 200, 500, 0, 5 * Math.PI)
+    snow.arc(100, 500, 1000, 0, 2 * Math.PI);
 
 
 
+//IDK WHT NO WORKY LOOK AT THIS MAYBE https://www.w3schools.com/tags/canvas_arc.asp
 
 
 
