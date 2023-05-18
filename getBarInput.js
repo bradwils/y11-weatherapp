@@ -4,6 +4,8 @@
 var cmds = ['help', 'size', 'update', 'stylewidth', 'newframe', "width (don't bother with it rn)" ]
 var barInput; //this is the input put into LOWERCASE
 var recent = [];
+var recentInputSplit = [];
+var recentInputCount;
 var recentInput;
 var recentDisplay = document.getElementById("recentResult");
 
@@ -68,6 +70,20 @@ function help() {
 function updateRecentList() { /* defines the function to update the recent searches. Leaving this here since 
     it's most relevent (instead of cluttering the htmlscript), but it gets called on the htmlscript after a 
     successful request is sent through */
+
+    recentInputSplit = barInput.split('');
+    recentInputSplit[0] = recentInputSplit[0].toUpperCase();
+    recentInputCount = recentInputSplit.length;
+
+    for (i = 0; i < recentInputCount; i++) {
+        if (recentInputSplit[i] == ' ') {
+            recentInputSplit[i + 1] = recentInputSplit[i + 1].toUpperCase();
+        }
+    }
+
+    recentInput = recentInputSplit.join();
+    recentInput = recentInput.replace(/[^A-Za-z]/g, "");
+
     recent[9] = recent[8];
     recent[8] = recent[7];
     recent[7] = recent[6];

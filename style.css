@@ -74,7 +74,7 @@ td {
 }
 
 #recentWeatherDiv {
-    border: 1px solid black;
+    border: 0px solid black;
     float: right;
     height: 60vh;
     width: 15%;
@@ -98,7 +98,8 @@ html {
 }
 
 #recentResult {
-    height: 180px;
+    height: 400px;
+    width: 200px;
     resize: none;
 }
 
