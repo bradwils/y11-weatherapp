@@ -65,7 +65,9 @@ function help() {
     console.log('commands: ' + cmds)
 }
 
-function updateRecentList() { //defines the function to update the recent searches. Leaving this here since it's most relevent (instead of cluttering the htmlscript), but it gets called on the htmlscript after a successful request is sent through.
+function updateRecentList() { /* defines the function to update the recent searches. Leaving this here since 
+    it's most relevent (instead of cluttering the htmlscript), but it gets called on the htmlscript after a 
+    successful request is sent through */
     recent[9] = recent[8];
     recent[8] = recent[7];
     recent[7] = recent[6];
