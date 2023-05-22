@@ -47,13 +47,6 @@ function debugGetBar() {
     else if (splitInput[0] == 'weather') {
         changeWeather(splitInput[1]);
         console.log('ran changeWeather with the param ' + splitInput[1])
-    }
-    
-    //TEMPORARY ENTRY WHILE I GET SNOW TO WORK
-
-    else if (barInput == 'snow') {
-        snowParticles()
-        console.log('ran snowParticles')
     } else {
         APIUpdate(barInput)
         console.log('APIUpdate ran')

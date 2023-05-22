@@ -60,7 +60,7 @@ async function APIUpdate(location) { //needs search functionality
         }
         setAPIShortcuts()
         console.log('APIUpdate finished')
-        // logApiShortcuts()
+        logApiShortcuts()
     }
 }
 

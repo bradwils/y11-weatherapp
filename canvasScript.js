@@ -15,6 +15,11 @@ const rainyClouds = new Image();
 const thunderClouds = new Image();
 const snowClouds = new Image();
 const standardClouds = new Image();
+const sun = new Image();
+const snowflakes = new Image();
+const snowflakes2 = new Image();
+const rain = new Image();
+const rain2 = new Image();
 
 canvas.width = 1920;
 canvas.height = 1080;
@@ -34,6 +39,11 @@ function loadImages() {
     thunderClouds.src = "Canvas Assets/thunderClouds.png"
     snowClouds.src = "Canvas Assets/snowclouds.png"
     standardClouds.src = "Canvas Assets/cloudy.png"
+    sun.src = "Canvas Assets/sun.png"
+    snowflakes.src = "Canvas Assets/snowXL.png"
+    snowflakes2.src = "Canvas Assets/snowXL2.png"
+    rain.src = "Canvas Assets/rain.png"
+    rain2.src = "Canvas Assets/rain.png"
 
     console.log('images loaded')
 }
@@ -47,8 +57,16 @@ function updateCanvas() {
     // ctx.drawImage(lightning1, 100, 100)
     // ctx.drawImage(rainyClouds, 0, 0)
     // ctx.drawImage(thunderClouds, 0, 0)
+    // ctx.drawImage(snowClouds, 0, 0)
+    // ctx.drawImage(standardClouds, 0, 0)
+    // ctx.drawImage(sun, 1500, 0);
+    ctx.drawImage(snowflakes, 0, 0);
     ctx.drawImage(snowClouds, 0, 0)
+
     console.log('canvas updated')
+    // for (i=0; i>3600; i++) {
+        setInterval(moveSnow, 1000/60)
+    // }
 }
 
 
@@ -61,6 +79,19 @@ function changeWidth(newWidth) {
     } else {
         console.log('same height: ' + canvas.height)
     }
+}
+
+
+//TEMP FUNCTION BELOW
+var snowY = 400
+var snowX = 0
+function moveSnow() {
+    console.log('running moveSnow')
+    ctx.clearRect(0, 0, 1920, 1080)
+    ctx.drawImage(snowflakes, snowX, snowY);
+    ctx.drawImage(snowClouds, 0, 0)
+    // snowX = snowX + 1;
+    snowY = snowY + 1;
 }
 
 
@@ -77,38 +108,6 @@ function changeWeather(weather) {
             console.log('snow')
             break;
     }
-}
-
-function snowParticles() {
-    snow.fillStyle = "#000000";
-    snow.beginPath();
-    snow.arc(100, 200, 500, 0, 5 * Math.PI)
-    snow.arc(100, 500, 1000, 0, 2 * Math.PI);
-
-
-
-//IDK WHT NO WORKY LOOK AT THIS MAYBE https://www.w3schools.com/tags/canvas_arc.asp
-
-
-
-
-
-//so, draw this a bunch of times ctx.arc(100, 200, 50, 0, 5 * Math.PI);
-// but for each, instead of having values, have like xPos[0], xPos[1], xPos[2], etc.
-// in a diff var, update the values of these (ie a for loop that for (i=0, i>4 [or however many snowflakes there are], i++) {
-//      yPos[i] = yPos - 10 (or whatever amount of pixels you want it to move per frame)
-//      xPos[i] = xPos - 10 (or whatever amount of pixels you want it to move per frame)
-//  }
-//  then, redraw the snowflakes
-//  so, draw this a bunch of times ctx.arc(xPos[0], yPos[1], 50, 0, 5 * Math.PI);
-// and have anm indivudal check for each to see if the height exceeds 1920, and set it back to 100 with a randomized x position.
-
-
-//}
-
-
-
-
 }
 
 // setInterval(doFrames, 1000/60);
