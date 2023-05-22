@@ -74,8 +74,7 @@ function updateRecentList() { /* defines the function to update the recent searc
         }
     }
 
-    recentInput = recentInputSplit.join();
-    recentInput = recentInput.replace(/[^A-Za-z]/g, "");
+    recentInput = recentInputSplit.join("");
 
     recent[9] = recent[8];
     recent[8] = recent[7];
