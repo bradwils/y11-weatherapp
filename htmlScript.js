@@ -1,6 +1,3 @@
-
-//above doesn't work. dunno why. fix later., it's unimportant rn.
-
 var response;
 var data;
 

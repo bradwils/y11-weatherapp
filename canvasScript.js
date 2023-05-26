@@ -2,11 +2,14 @@
 // draw is the context.  .fillRect just means to 'fill a rectangle shape'       x-coord 100, y-coord 100         width 100, height 100.  all in pixels.
     // draw                    .fillRect                                                   (100, 100,                      100, 100);
 
-var canvas = document.querySelector('canvas')
-var ctx = canvas.getContext('2d')
+var canvas = document.querySelector('canvas');
+const ctx = canvas.getContext('2d');
+var snow1ctx = canvas.getContext('2d');
+var snow2ctx = canvas.getContext('2d');
+var ctxMainText = canvas.getContext('2d')
 
 var draw = canvas.getContext('2d')
-var mainWeatherText = canvas.getContext('2d')
+var mainWeatherText = canvas.getContext('2d') //this will be for the main text, like the temperature.
 var snow = canvas.getContext('2d')
 
 //DEFINING IMAGES
@@ -25,6 +28,8 @@ canvas.width = 1920;
 canvas.height = 1080;
 ratio = 20 / canvas.width; // these two lines make sure that when you are drawing images, the location matches up with the canvas' internal resolution, which
 fontSize = 1920 * ratio    // is different to the displayed one that you see on the page. these calculations is what compensates for the error to correct it.
+//idk if the above 2 are needed. test and delete if needed.
+
 
 function getCanvasSize() {
 
@@ -55,12 +60,24 @@ function updateCanvas() {
     
     // mainWeatherText.fillText('yo whats good champion', 1900, 100)
     // ctx.drawImage(lightning1, 100, 100)
+
     // ctx.drawImage(rainyClouds, 0, 0)
+
+    // ctx.drawImage(rain, 0, 0)
+
+    // ctx.drawImage(rain2, 0, 0)
+
     // ctx.drawImage(thunderClouds, 0, 0)
+
     // ctx.drawImage(snowClouds, 0, 0)
+
     // ctx.drawImage(standardClouds, 0, 0)
-    // ctx.drawImage(sun, 1500, 0);
-    ctx.drawImage(snowflakes, 0, 0);
+
+    // ctx.drawImage(sun, 1500, 0)
+
+    // ctx.drawImage(snowflakes, 0, 0)
+    // ctx.globalAlpha = 0.5;               // SETS OPACITY TO 50%
+
     ctx.drawImage(snowClouds, 0, 0)
 
     console.log('canvas updated')
@@ -99,7 +116,9 @@ function moveSnow() {
 function changeWeather(weather) {
     switch (weather) { //using the passed parameter 'weather'
         case 'rain': //if weather = rain'
-            console.log('rain');
+            console.log('weather = rain');
+            rainWeatherCanvas()
+            currentCanvasWeather = 'rain';
             break; //stop checking
         case 'thunder':
             console.log('thunder')
