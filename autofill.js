@@ -4,8 +4,7 @@ function autocomplete(inp, arr) {
     /*the autocomplete function takes two arguments,
     the text field element and an array of possible autocompleted values:*/
     var currentFocus;
-    /*execute a function when someone writes in the text field:*/
-    inp.addEventListener("input", function(e) {
+    /*execute a function when someone writes in the text field:*/inp.addEventListener("input", function(e) {
         var a, b, i, val = this.value;
         /*close any already open lists of autocompleted values*/
         closeAllLists();
@@ -95,6 +94,11 @@ function autocomplete(inp, arr) {
   document.addEventListener("click", function (e) {
       closeAllLists(e.target);
   });
-  }
 
   autocomplete(document.getElementById("searchbar"), countries);
+}  
+
+//src: W3Schools: https://www.w3schools.com/howto/howto_js_autocomplete.asp
+
+//top half of function has disabled entering userInput
+//still need to fix formatting to only show a couple of results instead of all
