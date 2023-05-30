@@ -3,3 +3,11 @@ for further information from it, you need to do daata.weather[0].etc.
 
 
 the canvas uses it's own weird little pixel system to move things, so it's differnet to the reported pixel size from the html element.
+
+
+for timing; you need to give the website a second to load all of the images and other variables.
+if you run functions straight away using the images and canvas it may not work, so if you want something to run fast maybe setTimeout
+
+
+
+ANIMATION LIST:

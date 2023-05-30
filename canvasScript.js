@@ -1,16 +1,13 @@
-
-// draw is the context.  .fillRect just means to 'fill a rectangle shape'       x-coord 100, y-coord 100         width 100, height 100.  all in pixels.
-    // draw                    .fillRect                                                   (100, 100,                      100, 100);
-
 var canvas = document.querySelector('canvas');
 const ctx = canvas.getContext('2d');
-var snow1ctx = canvas.getContext('2d');
-var snow2ctx = canvas.getContext('2d');
-var ctxMainText = canvas.getContext('2d')
+const snow1ctx = canvas.getContext('2d');
+const snow2ctx = canvas.getContext('2d');
+const rain1ctx = canvas.getContext('2d');
+const rain2ctx = canvas.getContext('2d');
+const ctxMainText = canvas.getContext('2d')
 
-var draw = canvas.getContext('2d')
-var mainWeatherText = canvas.getContext('2d') //this will be for the main text, like the temperature.
-var snow = canvas.getContext('2d')
+const mainWeatherText = canvas.getContext('2d') //this will be for the main text, like the temperature.
+const snow = canvas.getContext('2d')
 
 //DEFINING IMAGES
 const lightning1 = new Image();
@@ -114,6 +111,9 @@ function moveSnow() {
 
 
 function changeWeather(weather) {
+    //write code that clears all possible intervals (listed in the notes.txt)
+        clearInterval(updateRain1)
+        clearInterval(updateRain2)
     switch (weather) { //using the passed parameter 'weather'
         case 'rain': //if weather = rain'
             console.log('weather = rain');
