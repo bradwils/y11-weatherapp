@@ -6,7 +6,6 @@ var rain2Opacity = 1;
 ctxMainText.font = '100px Verdana' //text defined
 
 function rain1yAdjusment() {
-    console.log('running rain1yAdjusment')
     if (rain1y < 300 && rain1Opacity <1) { //threshold for when rain1 starts to fade out
         rain1Opacity = rain1Opacity + 0.05;
     } else {
@@ -17,12 +16,10 @@ function rain1yAdjusment() {
         }
     }
     rain1y=rain1y + 3;
-    console.log('rain1y = ' + rain1y)
-    console.log('rain1Opacity = ' + rain1Opacity)
 }
 
+
 function rain2yAdjusment() {
-    console.log('running rain2yAdjusment');
     if (rain2y < 300 && rain2Opacity <1) { //threshold for when rain2 starts to fade out
         rain2Opacity = rain2Opacity + 0.05;
     } else {
@@ -33,14 +30,15 @@ function rain2yAdjusment() {
         }
     }
     rain2y=rain2y + 5;
-    console.log('rain2y = ' + rain2y)
-    console.log('rain2Opacity = ' + rain2Opacity)
-    console.log('')
 }
 
 
-//something is weird with the fade out timing, its like its getting stuck on either other? 
-//check it out at next oppotunity.
+//there seems to be some weird flickering. aside from that it works.
+
+
+
+
+
 
 //we need 1 function for defining all the elements and initiate the loops,
 // another to control the drawing of any element that needs to be draw every frame for the animations.
