@@ -106,20 +106,3 @@ html {
 #recentTab {
     text-align: center;
 }
-
-/*autoFill styling*/
-.autocomplete{
-    position: relative;
-    display: inline-block;
-}
-
-.autocomplete-items {
-    position: absolute;
-    top: 100px;
-    right: 460px;
-}
-
-.autocomplete-active {
-    background-color: DodgerBlue !important; 
-    color: #ffffff; 
-  }
