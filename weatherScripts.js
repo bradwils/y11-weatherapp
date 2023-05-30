@@ -7,7 +7,7 @@ ctxMainText.font = '100px Verdana' //text defined
 
 function rain1yAdjusment() {
     console.log('running rain1yAdjusment')
-    if (rain1y < 300) { //threshold for when rain1 starts to fade out
+    if (rain1y < 300 && rain1Opacity <1) { //threshold for when rain1 starts to fade out
         rain1Opacity = rain1Opacity + 0.05;
     } else {
         if (rain1Opacity >= 0.05) {
@@ -16,12 +16,14 @@ function rain1yAdjusment() {
             rain1y = 50
         }
     }
-    rain1y=rain1y + 5;
+    rain1y=rain1y + 3;
+    console.log('rain1y = ' + rain1y)
+    console.log('rain1Opacity = ' + rain1Opacity)
 }
 
 function rain2yAdjusment() {
     console.log('running rain2yAdjusment');
-    if (rain2y < 300) { //threshold for when rain2 starts to fade out
+    if (rain2y < 300 && rain2Opacity <1) { //threshold for when rain2 starts to fade out
         rain2Opacity = rain2Opacity + 0.05;
     } else {
         if (rain2Opacity >= 0.05) {
@@ -30,7 +32,10 @@ function rain2yAdjusment() {
             rain2y = 0
         }
     }
-    rain2y=rain2y + 4;
+    rain2y=rain2y + 5;
+    console.log('rain2y = ' + rain2y)
+    console.log('rain2Opacity = ' + rain2Opacity)
+    console.log('')
 }
 
 
@@ -44,8 +49,8 @@ function rain2yAdjusment() {
 function prepareRainWeatherCanvas() {
     console.log('running prepareRainWeatherCanvas')
     ctx.clearRect(0, 0, 1920, 1080)
-    var updateRain1 = setInterval(rain1yAdjusment, 1000/30) //SETUP THE RAIN1 Y ADJUSTMENT LOOP
-    var updateRain2 = setInterval(rain2yAdjusment, 1000/30) //SETUP THE RAIN2 Y ADJUSTMENT LOOP
+    var updateRain1 = setInterval(rain1yAdjusment, 1000/60) //SETUP THE RAIN1 Y ADJUSTMENT LOOP
+    var updateRain2 = setInterval(rain2yAdjusment, 1000/60) //SETUP THE RAIN2 Y ADJUSTMENT LOOP
     var rainAnimations = setInterval(animateRainWeather, 1000/60) //SETUP THE ANIMATION LOOP
 }
 
