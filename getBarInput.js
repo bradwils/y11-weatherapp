@@ -87,17 +87,17 @@ function updateRecentList() { /* defines the function to update the recent searc
     recent[1] = recent[0];
     recent[0] = recentInput;
 
-    recentDisplay.innerHTML = "Recent searches ----> " +
-    "\n" + " " + recent[0] +
-    "\n" + " " + recent[1] +
-    "\n" + " " + recent[2] +
-    "\n" + " " + recent[3] +
-    "\n" + " " + recent[4] +
-    "\n" + " " + recent[5] +
-    "\n" + " " + recent[6] +
-    "\n" + " " + recent[7] +
-    "\n" + " " + recent[8] +
-    "\n" + " " + recent[9];
+    recentDisplay.innerHTML = "Recent searches" +
+    "\n" + "  " + recent[0] +
+    "\n" + "  " + recent[1] +
+    "\n" + "  " + recent[2] +
+    "\n" + "  " + recent[3] +
+    "\n" + "  " + recent[4] +
+    "\n" + "  " + recent[5] +
+    "\n" + "  " + recent[6] +
+    "\n" + "  " + recent[7] +
+    "\n" + "  " + recent[8] +
+    "\n" + "  " + recent[9];
 }
 
 barInput = document.getElementById("searchbar")
