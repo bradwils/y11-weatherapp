@@ -1,4 +1,7 @@
 var canvas = document.querySelector('canvas');
+
+var currentCanvasWeather;
+
 const ctx = canvas.getContext('2d');
 const snow1ctx = canvas.getContext('2d');
 const snow2ctx = canvas.getContext('2d');
@@ -112,12 +115,16 @@ function moveSnow() {
 
 function changeWeather(weather) {
     //write code that clears all possible intervals (listed in the notes.txt)
+    if (currentCanvasWeather == 'rain') {
         clearInterval(updateRain1)
         clearInterval(updateRain2)
+    } //CLEARS RAIN INTERVALS IF CURRENTLY RUNNING
+
+
     switch (weather) { //using the passed parameter 'weather'
         case 'rain': //if weather = rain'
             console.log('weather = rain');
-            rainWeatherCanvas()
+            prepareRainWeatherCanvas()
             currentCanvasWeather = 'rain';
             break; //stop checking
         case 'thunder':

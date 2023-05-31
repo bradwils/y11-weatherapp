@@ -3,6 +3,11 @@ var rain1y = 100;
 var rain2y = 100;
 var rain1Opacity = 1;
 var rain2Opacity = 1;
+
+var updateRain1;
+var updateRain2;
+var rainAnimations;
+
 ctxMainText.font = '100px Verdana' //text defined
 
 function rain1yAdjusment() {
@@ -67,4 +72,5 @@ function animateRainWeather() { //beginning the rain animations
     ctx.drawImage(rainyClouds, 100, 0) //draw clouds
 }
 
-setTimeout(prepareRainWeatherCanvas, 100)
+
+// MAKE ANOTHER FUNCTION THAT STOPS THE ANIMATERAINWEATHER FUNCTION AND RUNS ITS OWN THAT MAKES EVERYTHING SLOWLEY TRANSPARENT INSTEAD OF THE PREDIFINED GLOBALALPHA LEVELS THAT ARE DEFINED HERE
