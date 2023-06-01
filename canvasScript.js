@@ -1,3 +1,4 @@
+var currentCanvasWeather;
 var canvas = document.querySelector('canvas');
 
 var currentCanvasWeather;
@@ -118,6 +119,9 @@ function changeWeather(weather) {
     if (currentCanvasWeather == 'rain') {
         clearInterval(updateRain1)
         clearInterval(updateRain2)
+        clearInterval(rainAnimations)
+        console.log('CLEARED RAIN INTERVALS')
+
     } //CLEARS RAIN INTERVALS IF CURRENTLY RUNNING
 
 
