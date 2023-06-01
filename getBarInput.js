@@ -64,19 +64,19 @@ function updateRecentList() { /* defines the function to update the recent searc
     it's most relevent (instead of cluttering the htmlscript), but it gets called on the htmlscript after a 
     successful request is sent through */
 
-    recentInputSplit = barInput.split('');
-    recentInputSplit[0] = recentInputSplit[0].toUpperCase();
-    recentInputCount = recentInputSplit.length;
+    recentInputSplit = barInput.split(''); //splits each character of user's search into an array
+    recentInputSplit[0] = recentInputSplit[0].toUpperCase(); //sets first letter of array to upper case
+    recentInputCount = recentInputSplit.length; //gets the length of user's input
 
-    for (i = 0; i < recentInputCount; i++) {
+    for (i = 0; i < recentInputCount; i++) { //captialises the start of each letter
         if (recentInputSplit[i] == ' ') {
             recentInputSplit[i + 1] = recentInputSplit[i + 1].toUpperCase();
         }
     }
 
-    recentInput = recentInputSplit.join("");
+    recentInput = recentInputSplit.join(""); //joins the array together into one string
 
-    recent[9] = recent[8];
+    recent[9] = recent[8]; //sets user's input into first element of array and pushes the user's previous searches across the array
     recent[8] = recent[7];
     recent[7] = recent[6];
     recent[6] = recent[5];
@@ -87,7 +87,7 @@ function updateRecentList() { /* defines the function to update the recent searc
     recent[1] = recent[0];
     recent[0] = recentInput;
 
-    recentDisplay.innerHTML = "Recent searches" +
+    recentDisplay.innerHTML = "Recent searches" + //displays recent search results
     "\n" + "  " + recent[0] +
     "\n" + "  " + recent[1] +
     "\n" + "  " + recent[2] +
