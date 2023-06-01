@@ -79,7 +79,7 @@ function updateCanvas() {
     // ctx.drawImage(snowflakes, 0, 0)
     // ctx.globalAlpha = 0.5;               // SETS OPACITY TO 50%
 
-    ctx.drawImage(snowClouds, 0, 0)
+    // ctx.drawImage(snowClouds, 0, 0)
 
     console.log('canvas updated')
     // for (i=0; i>3600; i++) {
