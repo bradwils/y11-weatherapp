@@ -9,6 +9,7 @@ const snow2ctx = canvas.getContext('2d');
 const rain1ctx = canvas.getContext('2d');
 const rain2ctx = canvas.getContext('2d');
 const ctxMainText = canvas.getContext('2d')
+const sunCtx = canvas.getContext('2d');
 
 const mainWeatherText = canvas.getContext('2d') //this will be for the main text, like the temperature.
 const snow = canvas.getContext('2d')
@@ -24,6 +25,8 @@ const snowflakes = new Image();
 const snowflakes2 = new Image();
 const rain = new Image();
 const rain2 = new Image();
+const smallcloud = new Image();
+const smallcloud2 = new Image();
 
 canvas.width = 1920;
 canvas.height = 1080;
@@ -50,6 +53,8 @@ function loadImages() {
     snowflakes2.src = "Canvas Assets/snowXL2.png"
     rain.src = "Canvas Assets/rain.png"
     rain2.src = "Canvas Assets/rain.png"
+    smallcloud.src = "Canvas Assets/smallcloud1.png"
+    smallcloud2.src = "Canvas Assets/smallcloud2.png"
 
     console.log('images loaded')
 }
@@ -81,9 +86,14 @@ function updateCanvas() {
 
     // ctx.drawImage(snowClouds, 0, 0)
 
+    // ctx.drawImage(smallcloud, 0, 0)
+
+    // ctx.drawImage(smallcloud2, 1000, 0)
+
+
     console.log('canvas updated')
     // for (i=0; i>3600; i++) {
-        setInterval(moveSnow, 1000/60)
+        // setInterval(moveSnow, 1000/60)
     // }
 }
 
@@ -136,6 +146,10 @@ function changeWeather(weather) {
             break;
         case 'snow':
             console.log('snow')
+            break;
+        case 'clear':
+            prepareClearWeatherCanvas()
+            console.log('clear')
             break;
     }
 }
