@@ -10,3 +10,10 @@ FIX THE WHITE SPACE AT BOTTOM OF PAGE
 
 
 // for the api debugging, make it so you can type 'api <location> and then it'll give you the api for that location (using the split input to insert it into the query field of the api call).
+
+
+for text, arrange string to display then split into array
+display it one by one so it looks like it's being typed.
+
+in addition to above, have option for fast animations + slow animations
+slow (default) would have fades + typing effects (etc), fast would have none of them.

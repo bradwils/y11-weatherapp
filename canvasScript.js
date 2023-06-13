@@ -111,16 +111,7 @@ function changeWidth(newWidth) {
 
 
 //TEMP FUNCTION BELOW
-var snowY = 400
-var snowX = 0
-function moveSnow() {
-    console.log('running moveSnow')
-    ctx.clearRect(0, 0, 1920, 1080)
-    ctx.drawImage(snowflakes, snowX, snowY);
-    ctx.drawImage(snowClouds, 0, 0)
-    // snowX = snowX + 1;
-    snowY = snowY + 1;
-}
+
 
 
 
@@ -146,6 +137,7 @@ function changeWeather(weather) {
             break;
         case 'snow':
             console.log('snow')
+            prepareSnowAnimations()
             break;
         case 'clear':
             prepareClearWeatherCanvas()

@@ -1,0 +1,3 @@
+when originalsnow hits bottom of screen, get snowclone to teleport to location
+
+DRAW CLEARBOX ON ANYTHING ABOVE LIKE HALFWAY ABOVE THE CLOUD'S HEIGHT AFTER THE SNOW HAS BEEN DRAWN BUT BEFORE CLOUD HAS BEEN DRAWN
