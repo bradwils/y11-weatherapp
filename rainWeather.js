@@ -7,7 +7,7 @@ var updateRain1;
 var updateRain2;
 var rainAnimations;
 
-function rain1yAdjusment() {
+function rain1yadjustment() {
     if (rain1y < 300 && rain1Opacity <1) { //threshold for when rain1 starts to fade out
         rain1Opacity = rain1Opacity + 0.05;
     } else {
@@ -21,7 +21,7 @@ function rain1yAdjusment() {
 }
 
 
-function rain2yAdjusment() {
+function rain2yadjustment() {
     if (rain2y < 300 && rain2Opacity <1) { //threshold for when rain2 starts to fade out
         rain2Opacity = rain2Opacity + 0.05;
     } else {
@@ -37,11 +37,6 @@ function rain2yAdjusment() {
 
 //there seems to be some weird flickering. aside from that it works.
 
-
-
-
-
-
 //we need 1 function for defining all the elements and initiate the loops,
 // another to control the drawing of any element that needs to be draw every frame for the animations.
 
@@ -49,8 +44,8 @@ function rain2yAdjusment() {
 function prepareRainWeatherCanvas() {
     console.log('running prepareRainWeatherCanvas')
     ctx.clearRect(0, 0, 1920, 1080)
-    updateRain1 = setInterval(rain1yAdjusment, 1000/60) //SETUP THE RAIN1 Y ADJUSTMENT LOOP
-    updateRain2 = setInterval(rain2yAdjusment, 1000/60) //SETUP THE RAIN2 Y ADJUSTMENT LOOP
+    updateRain1 = setInterval(rain1yadjustment, 1000/60) //SETUP THE RAIN1 Y ADJUSTMENT LOOP
+    updateRain2 = setInterval(rain2yadjustment, 1000/60) //SETUP THE RAIN2 Y ADJUSTMENT LOOP
     rainAnimations = setInterval(drawRainWeather, 1000/60) //SETUP THE ANIMATION LOOP
 }
 
