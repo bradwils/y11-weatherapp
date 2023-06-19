@@ -21,9 +21,4 @@ function drawClearWeather() {
     ctx.globalAlpha = 1; //makes sure everything is fully visible
     ctx.clearRect(0, 0, 1920, 1080) //clears the canvas
     sunCtx.drawImage(sun, 1500, 0) //draws sun (1 opacity)
-    ctx.globalAlpha = 0.8; //changes opacity to .8
-    ctx.drawImage(smallcloud, 300, 100) //draws small cloud (0.8 opacity)
-    ctx.drawImage(smallcloud2, 1420, 400) //draws small cloud2 (0.8 opacity)
-
-
 }

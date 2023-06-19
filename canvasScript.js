@@ -27,6 +27,8 @@ const rain = new Image();
 const rain2 = new Image();
 const smallcloud = new Image();
 const smallcloud2 = new Image();
+const drizzleRain = new Image();
+const drizzleRain2 = new Image();
 
 canvas.width = 1920;
 canvas.height = 1080;
@@ -55,6 +57,8 @@ function loadImages() {
     rain2.src = "Canvas Assets/rain.png"
     smallcloud.src = "Canvas Assets/smallcloud1.png"
     smallcloud2.src = "Canvas Assets/smallcloud2.png"
+    drizzleRain.src = "Canvas Assets/drizzleRain.png"
+    drizzleRain2.src = "Canvas Assets/drizzleRain.png"
 
     console.log('images loaded')
 }
@@ -77,7 +81,7 @@ function updateCanvas() {
 
     // ctx.drawImage(snowClouds, 0, 0)
 
-    // ctx.drawImage(standardClouds, 0, 0)
+    ctx.drawImage(standardClouds, 0, 0)
 
     // ctx.drawImage(sun, 1500, 0)
 
@@ -86,9 +90,9 @@ function updateCanvas() {
 
     // ctx.drawImage(snowClouds, 0, 0)
 
-    // ctx.drawImage(smallcloud, 0, 0)
+    ctx.drawImage(smallcloud, 0, 0)
 
-    // ctx.drawImage(smallcloud2, 1000, 0)
+    ctx.drawImage(smallcloud2, 1000, 0)
 
 
     console.log('canvas updated')
@@ -142,6 +146,10 @@ function changeWeather(weather) {
         case 'clear':
             prepareClearWeatherCanvas()
             console.log('clear')
+            break;
+        case 'drizzle':
+            prepareDrizzleRainWeatherCanvas()
+            console.log('drizzle')
             break;
     }
 }
