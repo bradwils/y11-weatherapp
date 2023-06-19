@@ -151,6 +151,10 @@ function changeWeather(weather) {
             prepareDrizzleRainWeatherCanvas()
             console.log('drizzle')
             break;
+        case 'cloudy':
+            prepareClearWeatherCanvas()
+            console.log('cloudy')
+            break;
     }
 }
 
