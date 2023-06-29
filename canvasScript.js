@@ -45,7 +45,7 @@ function getCanvasSize() {
 }
 
 function loadImages() {
-    lightning1.src = "Canvas Assets/lightning 600.png"
+    lightning1.src = "Canvas Assets/lightning 600 2.png"
     rainyClouds.src = "Canvas Assets/rainyclouds.png"
     thunderClouds.src = "Canvas Assets/thunderClouds.png"
     snowClouds.src = "Canvas Assets/snowclouds.png"
@@ -120,7 +120,7 @@ function changeWidth(newWidth) {
 
 
 function changeWeather(weather) {
-    //write code that clears all possible intervals (listed in the notes.txt)
+    //write code that drawClearWeathers all possible intervals (listed in the notes.txt)
     if (currentCanvasWeather == 'rain') {
         clearInterval(updateRain1)
         clearInterval(updateRain2)
@@ -137,6 +137,7 @@ function changeWeather(weather) {
             currentCanvasWeather = 'rain';
             break; //stop checking
         case 'thunder':
+            prepareThunderWeatherCanvas()
             console.log('thunder')
             break;
         case 'snow':
@@ -152,7 +153,7 @@ function changeWeather(weather) {
             console.log('drizzle')
             break;
         case 'cloudy':
-            prepareClearWeatherCanvas()
+            prepareCloudyWeatherCanvas()
             console.log('cloudy')
             break;
     }

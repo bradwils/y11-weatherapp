@@ -11,3 +11,8 @@ if you run functions straight away using the images and canvas it may not work, 
 
 
 ANIMATION LIST:
+
+
+
+
+MAY RETURN 'MIST' WEATHER?? WHAT IS THIS?? CLOUDY??? IDK LOOK IT UP

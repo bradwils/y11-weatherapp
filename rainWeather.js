@@ -9,7 +9,7 @@ var rainAnimations;
 
 function rain1yadjustment() {
     if (rain1y < 300 && rain1Opacity <1) { //threshold for when rain1 starts to fade out
-        rain1Opacity = rain1Opacity + 0.05;
+        rain1Opacity = rain1Opacity + 0.03;
     } else {
         if (rain1Opacity >= 0.05) {
             rain1Opacity = rain1Opacity - 0.03;
@@ -23,7 +23,7 @@ function rain1yadjustment() {
 
 function rain2yadjustment() {
     if (rain2y < 300 && rain2Opacity <1) { //threshold for when rain2 starts to fade out
-        rain2Opacity = rain2Opacity + 0.05;
+        rain2Opacity = rain2Opacity + 0.03;
     } else {
         if (rain2Opacity >= 0.05) {
             rain2Opacity = rain2Opacity - 0.03;
