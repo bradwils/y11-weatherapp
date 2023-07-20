@@ -9,3 +9,6 @@ function drawCloudyWeather() {
     ctx.clearRect(0, 0, 1920, 1080) //clears the canvas
     ctx.drawImage(standardClouds, ((canvas.width/2) - (standardClouds.width/2)), 100) //draws clouds
 }
+
+
+//
