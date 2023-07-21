@@ -3,7 +3,7 @@ var canvas = document.querySelector('canvas');
 
 const ctx = canvas.getContext('2d');
 const snow1ctx = canvas.getContext('2d');
-const snow2ctx = canvas.getContext('2d');
+const snow2ctx = canvas.getContext('2d'); //CHECK THESE, DELETE SOME OF THESE PROBABLY
 const rain1ctx = canvas.getContext('2d');
 const rain2ctx = canvas.getContext('2d');
 const ctxMainText = canvas.getContext('2d')
@@ -123,10 +123,25 @@ function changeWeather(weather) {
         clearInterval(updateRain1)
         clearInterval(updateRain2)
         clearInterval(rainAnimations)
-        console.log('CLEARED RAIN INTERVALS')
+    } else if (currentCanvasWeather == 'thunder') {
+        clearInterval(updateThunderRain1);
+        clearInterval(updateThunderRain2);
+        clearInterval(thunderAnimations);
+        clearInterval(lightningAnimation);
+    } else if (currentCanvasWeather == 'snow') {
+        clearInterval(updateSnow);
+        clearInterval(snowAnimations);
+    } else if (currentCanvasWeather == 'clear') {
+        clearInterval(clearAnimations);
+    } else if (currentCanvasWeather == 'drizzle') {
+        clearInterval(updateDrizzleRain1);
+        clearInterval(updateDrizzleRain2);
+        clearInterval(drizzleAnimations);
+    } else if (currentCanvasWeather == 'cloudy') {
+        clearInterval(cloudyAnimations);
+    }
 
-    } //CLEARS RAIN INTERVALS IF CURRENTLY RUNNING
-
+    ctx.clearRect(0, 0, 1920, 1080) //clears the canvasß
 
     switch (weather) { //using the passed parameter 'weather'
         case 'rain': //if weather = rain'
@@ -137,22 +152,27 @@ function changeWeather(weather) {
         case 'thunder':
             prepareThunderWeatherCanvas()
             console.log('thunder')
+            currentCanvasWeather = 'thunder';
             break;
         case 'snow':
             console.log('snow')
             prepareSnowAnimations()
+            currentCanvasWeather = 'snow';
             break;
         case 'clear':
             prepareClearWeatherCanvas()
             console.log('clear')
+            currentCanvasWeather = 'clear';
             break;
         case 'drizzle':
             prepareDrizzleRainWeatherCanvas()
             console.log('drizzle')
+            currentCanvasWeather = 'drizzle';
             break;
         case 'cloudy':
             prepareCloudyWeatherCanvas()
             console.log('cloudy')
+            currentCanvasWeather = 'cloudy';
             break;
     }
 }

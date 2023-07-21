@@ -100,8 +100,3 @@ function drawSnowAnimation() {
     // ctx.fillText('snowOpacity: ' + snowOpacity, 0, 1000) //debugtext
     // ctx.fillText('snowCopyOpacity: ' + snowCopyOpacity, 0, 1050) //debugtext
 }
-
-
-function stopSnowAnimations() { //do this stuff. might be issues with clearing stuff (overarching) if it hasn't actually been run? might return error? might crash? idk, check.
-    clearInterval(updateSnow)
-}
