@@ -1,8 +1,6 @@
 var currentCanvasWeather;
 var canvas = document.querySelector('canvas');
 
-var currentCanvasWeather;
-
 const ctx = canvas.getContext('2d');
 const snow1ctx = canvas.getContext('2d');
 const snow2ctx = canvas.getContext('2d');
