@@ -82,8 +82,9 @@ function prepareSnowAnimations() {
 
 
 function drawSnowAnimation() {
-    //snow X's will be 250 and 650.
+
     ctx.clearRect(0, 0, 1920, 1080)
+    ctxMainText.fillText((localName + ': ' + currentWeather + ', ' + currentTemp), 100, (canvas.height - 100)) //drew text
     ctx.globalAlpha = snowOpacity;
     ctx.drawImage(snowflakes, 200, snowY); //SNOW
     ctx.globalAlpha = snowCopyOpacity;
@@ -91,7 +92,7 @@ function drawSnowAnimation() {
     
     ctx.globalAlpha = 1;
 
-    ctx.clearRect(0,0,1920,200)
+    // ctx.clearRect(0,0,1920,200)
 
     ctx.drawImage(snowClouds, 0, 0)
 
