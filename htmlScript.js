@@ -6,7 +6,6 @@ var data;
 var localName;
 var currentWeather;
 var description;
-var icon;
 var minTemp;
 var maxTemp;
 var currentTemp;
@@ -65,7 +64,6 @@ function setAPIShortcuts() {
     localName = data.name;
     currentWeather = data.weather[0].main;
     description = data.weather[0].description;
-    icon = data.weather[0].icon;
     minTemp = data.main.temp_min;
     maxTemp = data.main.temp_max;
     currentTemp = data.main.temp;
@@ -82,7 +80,6 @@ function logApiShortcuts() {
     console.log('localName: ' + localName);
     console.log('currentWeather: ' + currentWeather);
     console.log('description: ' + description);
-    console.log('icon: ' + icon);
     console.log('minTemp: ' + minTemp);
     console.log('maxTemp: ' + maxTemp);
     console.log('currentTemp: ' + currentTemp);
