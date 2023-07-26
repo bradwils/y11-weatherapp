@@ -11,7 +11,7 @@ const sunCtx = canvas.getContext('2d');
 canvas.width = 1920;
 canvas.height = 1080;
 
-const mainWeatherText = canvas.getContext('2d') //this will be for the main text, like the temperature.
+ctxMainText.font = '50px Verdana' //main weather text size / font defined
 
 //DEFINING IMAGES
 const lightning1 = new Image();
@@ -28,6 +28,7 @@ const smallcloud = new Image();
 const smallcloud2 = new Image();
 const drizzleRain = new Image();
 const drizzleRain2 = new Image();
+
 
 function getCanvasSize() {
 
@@ -51,7 +52,6 @@ function loadImages() {
     smallcloud2.src = "Canvas Assets/smallcloud2.png"
     drizzleRain.src = "Canvas Assets/drizzleRain.png"
     drizzleRain2.src = "Canvas Assets/drizzleRain.png"
-
     console.log('images loaded')
 }
 
@@ -96,11 +96,11 @@ function updateCanvas() {
 
 function changeWeather(weather) {
     //write code that drawClearWeathers all possible intervals (listed in the notes.txt)
-    if (currentCanvasWeather == 'rain') {
+    if (currentCanvasWeather == 'Rain') {
         clearInterval(updateRain1)
         clearInterval(updateRain2)
         clearInterval(rainAnimations)
-    } else if (currentCanvasWeather == 'thunder') {
+    } else if (currentCanvasWeather == 'Thunder') {
         clearInterval(updateThunderRain1);
         clearInterval(updateThunderRain2);
         clearInterval(thunderAnimations);
@@ -108,48 +108,48 @@ function changeWeather(weather) {
     } else if (currentCanvasWeather == 'snow') {
         clearInterval(updateSnow);
         clearInterval(snowAnimations);
-    } else if (currentCanvasWeather == 'clear') {
+    } else if (currentCanvasWeather == 'Clear') {
         clearInterval(clearAnimations);
-    } else if (currentCanvasWeather == 'drizzle') {
+    } else if (currentCanvasWeather == 'Drizzle') {
         clearInterval(updateDrizzleRain1);
         clearInterval(updateDrizzleRain2);
         clearInterval(drizzleAnimations);
-    } else if (currentCanvasWeather == 'cloudy') {
-        clearInterval(cloudyAnimations);
+    } else if (currentCanvasWeather == 'Clouds') {
+        clearInterval(cloudsAnimations);
+        clearInterval(cloudsCloudAnimations);
     }
 
     ctx.clearRect(0, 0, 1920, 1080) //clears the canvasß
 
     switch (weather) { //using the passed parameter 'weather'
-        case 'rain': //if weather = rain'
-            console.log('weather = rain');
+        case 'Rain': //if weather = rain'
             prepareRainWeatherCanvas()
-            currentCanvasWeather = 'rain';
+            currentCanvasWeather = 'Rain';
             break; //stop checking
-        case 'thunder':
+        case 'Thunder':
             prepareThunderWeatherCanvas()
             console.log('thunder')
-            currentCanvasWeather = 'thunder';
+            currentCanvasWeather = 'Thunder';
             break;
-        case 'snow':
+        case 'Snow':
             console.log('snow')
             prepareSnowAnimations()
-            currentCanvasWeather = 'snow';
+            currentCanvasWeather = 'Snow';
             break;
-        case 'clear':
+        case 'Clear':
             prepareClearWeatherCanvas()
             console.log('clear')
-            currentCanvasWeather = 'clear';
+            currentCanvasWeather = 'Clear';
             break;
-        case 'drizzle':
+        case 'Drizzle':
             prepareDrizzleRainWeatherCanvas()
             console.log('drizzle')
-            currentCanvasWeather = 'drizzle';
+            currentCanvasWeather = 'Drizzle';
             break;
-        case 'cloudy':
+        case 'Clouds':
             prepareCloudyWeatherCanvas()
             console.log('cloudy')
-            currentCanvasWeather = 'cloudy';
+            currentCanvasWeather = 'Clouds';
             break;
     }
 }

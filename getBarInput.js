@@ -2,7 +2,7 @@
 // it automatically CONVERTS THE INPUT into LOWERCASE, so MAKE SURE to write you 'checks' in LOWERCASE.
 
 var cmds = ['help', 'size', 'update', 'stylewidth', 'newframe', "width (don't bother with it rn)" ]
-var barInput; //this is the input put into LOWERCASE
+var barInput; //can be made local
 var recent = [];
 var recentInputSplit = [];
 var recentInputCount;
@@ -16,7 +16,16 @@ function clearRecent() {
     }
 }
 
-function debugGetBar() {
+function barQuery() {
+    barInput = (document.getElementById('searchbar').value).toLowerCase();
+    console.log('barInput: ' + barInput)
+    apiUpdate(barInput);
+
+    recentInput = document.getElementById("searchbar").value; //for recent searches
+    document.getElementById('searchbar').value = ''; //last action is the searchbar being cleared.
+}
+
+function THIS_PEIEC_OF_TEXT_STOPS_DEBUG_BAR_FROM_WORKING_AND_YOU_CAN_REMOVE_IT_WHEN_YOU_HAVE_A_REGULER_BAR_WORKING_debugGetBar() {
     barInput = (document.getElementById('searchbar').value).toLowerCase();
     splitInput = barInput.split(' ');
     console.log('barInput: ' + barInput)

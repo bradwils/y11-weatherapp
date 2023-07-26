@@ -27,7 +27,7 @@ var urlPart1 = 'https://api.openweathermap.org/data/2.5/weather?q=' //first half
 var urlPart2 = '&appid=de4315905984c51cb8f1bb4c23c949c0&units=metric' //second half of URL
 // the reason for two parts in the url is because in the middle, the user's location query will be placed. This makes sure that it's in the right format for the APi to handle it.
 
-async function APIUpdate(location) { //needs search functionality
+async function apiUpdate(location) { //needs search functionality
     console.log('APIUpdate started') //DEBUG
     apiURL = urlPart1 + location + urlPart2; //URl p1/2 and query to create the full URL that is queried
     console.log('apiURL: '+ apiURL) //DEBUG
@@ -50,6 +50,7 @@ async function APIUpdate(location) { //needs search functionality
         setAPIShortcuts() //sets API shortcuts (binds them to vars)
         console.log('APIUpdate finished')
         logApiShortcuts() //DEBUG
+        changeWeather(currentWeather)
     }
 }
 

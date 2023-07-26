@@ -15,7 +15,8 @@ function prepareClearWeatherCanvas() {
 }
 
 function drawClearWeather() {
-    ctx.globalAlpha = 1; //makes sure everything is fully visible
     ctx.clearRect(0, 0, 1920, 1080) //clears the canvas
+    ctx.globalAlpha = 1; //makes sure everything is fully visible
+    ctxMainText.fillText((localName + ': ' + currentWeather + ', ' + currentTemp), 100, (canvas.height - 100)) //drew text
 }
 
