@@ -1,62 +1,55 @@
-var response;
-var data;
+var response; //the raw response from api
+var data; //the data from the api, in json format
 
 
 { //shortcut vars
-var localName;
-var currentWeather;
-var description;
-var minTemp;
-var maxTemp;
-var currentTemp;
-var feelslike;
-var windSpeed;
-var windDir;
-var localTime;
-var humidityPercent;
-var LatCoordinates;
-var LonCoordinates;
+var localName; //local name of location
+var currentWeather; //current weather of the location
+var description; //description of weather at location
+var minTemp; //minimum temperature of location
+var maxTemp; //maximum temperature of location
+var currentTemp; //current temperature of location
+var feelslike; //the temperature that it feels like at the location
+var windSpeed; //the speed of the wind at the location
+var windDir; //the direction of the wind at the location
+var localTime; //the local time at the location
+var humidityPercent; //the humidity percentage at the location
+var LatCoordinates; //the latitude coordinates of the location
+var LonCoordinates; //the longitude coordinates of the location
 
 //maybe if i have time at the end, show the location on a map? would be cool.
 }
 
 var response = '';
 var data = '';
-var apiURL = 'https://api.openweathermap.org/data/2.5/weather?q=sydney&appid=de4315905984c51cb8f1bb4c23c949c0&units=metric';
-var urlPart1 = 'https://api.openweathermap.org/data/2.5/weather?q='
-var urlPart2 = '&appid=de4315905984c51cb8f1bb4c23c949c0&units=metric'
-
-
-// var url = 'https://api.openweathermap.org/data/2.5/weather?q=jgbuifgh&appid=de4315905984c51cb8f1bb4c23c949c0&units=metric';
-
-
+var apiURL = 'https://api.openweathermap.org/data/2.5/weather?q=sydney&appid=de4315905984c51cb8f1bb4c23c949c0&units=metric'; //default url for testing probably not needed
+var urlPart1 = 'https://api.openweathermap.org/data/2.5/weather?q=' //first half of URL
+var urlPart2 = '&appid=de4315905984c51cb8f1bb4c23c949c0&units=metric' //second half of URL
+// the reason for two parts in the url is because in the middle, the user's location query will be placed. This makes sure that it's in the right format for the APi to handle it.
 
 async function APIUpdate(location) { //needs search functionality
-    console.log('APIUpdate started')
-    apiURL = urlPart1 + location + urlPart2;
-    console.log('apiURL: '+ apiURL)
+    console.log('APIUpdate started') //DEBUG
+    apiURL = urlPart1 + location + urlPart2; //URl p1/2 and query to create the full URL that is queried
+    console.log('apiURL: '+ apiURL) //DEBUG
     response = await fetch(apiURL);  //fetchs the info from api, and it's been 'promised' a response from the api, and waits for it. when it's been recieved, it will continue to the next line.
-    data = await response.json() //await means that it has been 'promised' a response of data, which is currently being converted form plain text into a json format (readable by computer)e
-    console.log('data gotten') //now that it's progressed to this line, the 'promise' has been fulfilled, and the data is ready.
+    data = await response.json() //await means that it has been 'promised' a response of data, which is currently being converted form plain text into a json format (readable by computer)
+    console.log('data gotten') //DEBUG
 
-    if (data.cod == 404) {
+    if (data.cod == 404) { //if the error code is 404 (ie the location is invalid)
         console.log('404 error') 
         alert('Invalid location. Please check the spelling and try again.')
-        document.getElementById('searchBtn').value = ''
-        //here, figure out how to change the placeholder in the text bar to 'check spelling for errors!'
     } else { //IF NO ERROR CODE, IE THE REQUEST IS SUCCESSFUL
         for (i=0; i < 9; i++) {  // 10 times (for earch history array entry)
-            //check above logic another time i feel like its off
             if (recentInput.toLowerCase() == recent[i].toLowerCase()) { //if they are equal (make lowercase to make sure caps arent an issue)
-                break; //break
+                break; //exit loop, no more adding to i
             }  
         }
         if (i == 9) { //if it has run 9 times (ie it's run everytime without breaking due to a match)
             updateRecentList() //update recent list
-        }
-        setAPIShortcuts()
+        } //otherwise it won't, as the result has matched one of the recent inputs.
+        setAPIShortcuts() //sets API shortcuts (binds them to vars)
         console.log('APIUpdate finished')
-        logApiShortcuts()
+        logApiShortcuts() //DEBUG
     }
 }
 
@@ -91,4 +84,3 @@ function logApiShortcuts() {
     console.log('LatCoordinates: ' + LatCoordinates);
     console.log('LonCoordinates: ' + LonCoordinates);
 }
-//status:

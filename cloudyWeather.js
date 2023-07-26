@@ -1,5 +1,4 @@
 var cloudY = 100
-var dir = 'down'
 var x = 0;
 function prepareCloudyWeatherCanvas() {
     console.log('running prepareClearWeatherCanvas')
@@ -23,6 +22,6 @@ function drawCloudyWeather() {
     ctx.clearRect(0, 0, 1920, 1080) //clears the canvas
     ctx.drawImage(standardClouds, ((canvas.width/2) - (standardClouds.width/2)), cloudY) //draws clouds
 }
-prepareCloudyWeatherCanvas()
+// prepareCloudyWeatherCanvas()
 
 //

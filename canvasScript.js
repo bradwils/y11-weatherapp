@@ -8,9 +8,10 @@ const rain1ctx = canvas.getContext('2d');
 const rain2ctx = canvas.getContext('2d');
 const ctxMainText = canvas.getContext('2d')
 const sunCtx = canvas.getContext('2d');
+canvas.width = 1920;
+canvas.height = 1080;
 
 const mainWeatherText = canvas.getContext('2d') //this will be for the main text, like the temperature.
-const snow = canvas.getContext('2d')
 
 //DEFINING IMAGES
 const lightning1 = new Image();
@@ -27,13 +28,6 @@ const smallcloud = new Image();
 const smallcloud2 = new Image();
 const drizzleRain = new Image();
 const drizzleRain2 = new Image();
-
-canvas.width = 1920;
-canvas.height = 1080;
-ratio = 20 / canvas.width; // these two lines make sure that when you are drawing images, the location matches up with the canvas' internal resolution, which
-fontSize = 1920 * ratio    // is different to the displayed one that you see on the page. these calculations is what compensates for the error to correct it.
-//idk if the above 2 are needed. test and delete if needed.
-
 
 function getCanvasSize() {
 
@@ -62,7 +56,6 @@ function loadImages() {
 }
 
 function updateCanvas() {
-    // mainWeatherText.font = (fontSize|0) + 'px Arial'; //i dont think this is needed?
     mainWeatherText.font = "20px Arial";
 
     
@@ -98,22 +91,6 @@ function updateCanvas() {
         // setInterval(moveSnow, 1000/60)
     // }
 }
-
-
-
-function changeWidth(newWidth) {
-    oldHeight = canvas.height;
-    canvas.width = newWidth;
-    if (oldHeight !== canvas.height) {
-        console.log('height changed from ' + oldHeight + ' to ' + canvas.height)
-    } else {
-        console.log('same height: ' + canvas.height)
-    }
-}
-
-
-//TEMP FUNCTION BELOW
-
 
 
 
