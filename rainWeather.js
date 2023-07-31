@@ -58,7 +58,7 @@ function drawRainWeather() { //beginning the rain animations
     ctx.drawImage(rain, 300, rain1y) //draw rain
 
     ctx.globalAlpha = rain2Opacity; //CHANGES RAIN OPACITY 
-    rain2ctx.drawImage(rain2, 200, rain2y) //draw rain2
+    ctx.drawImage(rain2, 200, rain2y) //draw rain2
     
     ctx.globalAlpha = 1; //changes opacity for any further images to the default 0.
     ctx.drawImage(rainyClouds, 100, 0) //draw clouds

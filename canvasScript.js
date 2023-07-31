@@ -2,9 +2,6 @@ var currentCanvasWeather;
 var canvas = document.querySelector('canvas');
 
 const ctx = canvas.getContext('2d');
-const snow1ctx = canvas.getContext('2d');
-const snow2ctx = canvas.getContext('2d'); //CHECK THESE, DELETE SOME OF THESE PROBABLY
-const rain1ctx = canvas.getContext('2d');
 const rain2ctx = canvas.getContext('2d');
 const ctxMainText = canvas.getContext('2d')
 const sunCtx = canvas.getContext('2d');

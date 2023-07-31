@@ -12,8 +12,6 @@ function slowCloudWobble() {
     cloudY = Math.floor(Math.cos(x)*20)
     console.log(cloudY)
     console.log('x: ' + x) 
-
-    //find a way to make x local but still declaring it as 0 at the start of the function only running once (check if nan like super quick check probably)
 }
 
 
