@@ -1,6 +1,9 @@
 var currentCanvasWeather;
 var canvas = document.querySelector('canvas');
 
+
+var cloudY = 100
+
 const ctx = canvas.getContext('2d');
 const rain2ctx = canvas.getContext('2d');
 const ctxMainText = canvas.getContext('2d')
@@ -52,42 +55,6 @@ function loadImages() {
     console.log('images loaded')
 }
 
-function updateCanvas() {
-    mainWeatherText.font = "20px Arial";
-
-    
-    // mainWeatherText.fillText('yo whats good champion', 1900, 100)
-    // ctx.drawImage(lightning1, 100, 100)
-
-    // ctx.drawImage(rainyClouds, 0, 0)
-
-    // ctx.drawImage(rain, 0, 0)
-
-    // ctx.drawImage(rain2, 0, 0)
-
-    // ctx.drawImage(thunderClouds, 0, 0)
-
-    // ctx.drawImage(snowClouds, 0, 0)
-
-    ctx.drawImage(standardClouds, 0, 0)
-
-    // ctx.drawImage(sun, 1500, 0)
-
-    // ctx.drawImage(snowflakes, 0, 0)
-    // ctx.globalAlpha = 0.5;               // SETS OPACITY TO 50%
-
-    // ctx.drawImage(snowClouds, 0, 0)
-
-    ctx.drawImage(smallcloud, 0, 0)
-
-    ctx.drawImage(smallcloud2, 1000, 0)
-
-
-    console.log('canvas updated')
-    // for (i=0; i>3600; i++) {
-        // setInterval(moveSnow, 1000/60)
-    // }
-}
 
 
 
@@ -113,7 +80,8 @@ function changeWeather(weather) {
         clearInterval(drizzleAnimations);
     } else if (currentCanvasWeather == 'Clouds') {
         clearInterval(cloudsAnimations);
-        clearInterval(cloudsCloudAnimations);
+    } else if (currentCanvasWeather == 'else') {
+        clearInterval(elseAnimations);
     }
 
     ctx.clearRect(0, 0, 1920, 1080) //clears the canvasß
@@ -123,7 +91,7 @@ function changeWeather(weather) {
             prepareRainWeatherCanvas()
             currentCanvasWeather = 'Rain';
             break; //stop checking
-        case 'Thunder':
+        case 'Thunderstorm':
             prepareThunderWeatherCanvas()
             console.log('thunder')
             currentCanvasWeather = 'Thunder';
@@ -148,10 +116,16 @@ function changeWeather(weather) {
             console.log('cloudy')
             currentCanvasWeather = 'Clouds';
             break;
+        default:
+            currentCanvasWeather = 'else'
+            ctxMainText.fillText((localName + ': ' + currentWeather + ', ' + currentTemp), 100, (canvas.height - 100))
     }
 }
 
-// setInterval(doFrames, 1000/60);
-// ABOVE: this will run a frame at 60fps. in that function (which ins't real yet), make it check if 'canvasRunning == true', and if so run. have another button on the page to make it false, and if it's false it'll stop the function.
-
 loadImages()
+
+function slowCloudWobble() {
+    x = x + 0.0175;
+    cloudY = Math.floor(Math.cos(x)*20)
+}
+setInterval(slowCloudWobble, 1000/60) //sets cloud wobble loop

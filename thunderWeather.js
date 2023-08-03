@@ -20,7 +20,6 @@ function rndNum(max) {
 }
 
 function ThunderRain1yAdjustment() { // --> 
-    console.log('run')
     if (thunderRain1y < 600 && thunderRain1Opacity <1) { //threshold for when rain1 starts to fade out
         thunderRain1Opacity = thunderRain1Opacity + 0.04;
     } else {
@@ -74,7 +73,7 @@ function prepareThunderWeatherCanvas() {
 
 function drawThunderWeather() { //beginning the rain animations
     ctx.clearRect(0, 0, 1920, 1080)
-    ctxMainText.fillText((localName + ': ' + currentWeather + ', ' + currentTemp), 100, (canvas.height - 100)) //drew text
+    ctxMainText.fillText((localName + ': ' + currentWeather + ', ' + currentTemp + '°'), 100, (canvas.height - 100)) //drew text
 
     ctx.globalAlpha = thunderRain1Opacity;
     ctx.drawImage(drizzleRain, 200, thunderRain1y) //draw rain
@@ -83,7 +82,7 @@ function drawThunderWeather() { //beginning the rain animations
     ctx.drawImage(drizzleRain2, 800, thunderRain2y) //draw rain2
     
     ctx.globalAlpha = 1; //changes opacity for any further images to the default 0.
-    ctx.drawImage(thunderClouds, 100, 0) //draw clouds
+    ctx.drawImage(thunderClouds, 100, cloudY) //draw clouds
 
     if (activeLightning == true) {
         if (lightningOpacity < 0.05) {

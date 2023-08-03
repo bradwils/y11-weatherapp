@@ -52,7 +52,7 @@ function prepareRainWeatherCanvas() {
 
 function drawRainWeather() { //beginning the rain animations
     ctx.clearRect(0, 0, 1920, 1080)
-    ctxMainText.fillText((localName + ': ' + currentWeather + ', ' + currentTemp), 100, (canvas.height - 100)) //drew text
+    ctxMainText.fillText((localName + ': ' + currentWeather + ', ' + currentTemp + '°'), 100, (canvas.height - 100)) //drew text
 
     ctx.globalAlpha = rain1Opacity;
     ctx.drawImage(rain, 300, rain1y) //draw rain
@@ -61,7 +61,7 @@ function drawRainWeather() { //beginning the rain animations
     ctx.drawImage(rain2, 200, rain2y) //draw rain2
     
     ctx.globalAlpha = 1; //changes opacity for any further images to the default 0.
-    ctx.drawImage(rainyClouds, 100, 0) //draw clouds
+    ctx.drawImage(rainyClouds, 100, cloudY) //draw clouds
 }
 
 function animateFadeOutRainWeather() {

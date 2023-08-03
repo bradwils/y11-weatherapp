@@ -47,7 +47,7 @@ function prepareDrizzleRainWeatherCanvas() {
 
 function drawDrizzleRainWeather() { //beginning the rain animations
     ctx.clearRect(0, 0, 1920, 1080)
-    ctxMainText.fillText((localName + ': ' + currentWeather + ', ' + currentTemp), 100, (canvas.height - 100)) //drew text
+    ctxMainText.fillText((localName + ': ' + currentWeather + ', ' + currentTemp + '°'), 100, (canvas.height - 100)) //drew text
 
     ctx.globalAlpha = drizzleRain1Opacity;
     ctx.drawImage(drizzleRain, 200, drizzleRain1y) //draw rain
@@ -56,7 +56,7 @@ function drawDrizzleRainWeather() { //beginning the rain animations
     ctx.drawImage(drizzleRain2, 800, drizzleRain2y) //draw rain2
     
     ctx.globalAlpha = 1; //changes opacity for any further images to the default 0.
-    ctx.drawImage(rainyClouds, 100, 0) //draw clouds
+    ctx.drawImage(rainyClouds, 100, cloudY) //draw clouds
 }
 
 // same as animeRainWeather function, but replace the global alpha values with a value that loops every time it runs lowering the value to 0 over about 0.5 seconds.

@@ -51,6 +51,7 @@ async function apiUpdate(location) { //needs search functionality
         console.log('APIUpdate finished')
         logApiShortcuts() //DEBUG
         changeWeather(currentWeather)
+        updateMapURL()
     }
 }
 
@@ -63,12 +64,11 @@ function setAPIShortcuts() {
     currentTemp = data.main.temp;
     feelslike = data.main.feels_like;
     windSpeed = data.wind.speed;
-    windDir = data.wind.deg;
+    windDir = data.wind.deg
     localTime = data.dt;
     humidityPercent = data.main.humidity;
     LatCoordinates = data.coord.lat;
     LonCoordinates = data.coord.lon;
-    "https://www.openstreetmap.org/export/embed.html?bbox=-178.24218750000003%2C-76.43460358351301%2C201.44531250000003%2C82.49482361179574&amp;layer=mapnik&amp;marker=" + LatCoordinates + "%2C" + LonCoordinates; 
 }
 
 function logApiShortcuts() {
