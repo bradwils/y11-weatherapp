@@ -1,8 +1,8 @@
 var x = 0;
 function prepareCloudyWeatherCanvas() {
     console.log('running prepareClearWeatherCanvas')
-    ctx.clearRect(0, 0, 1920, 1080)
-    cloudsAnimations = setInterval(drawCloudyWeather, 1000/60)
+    ctx.clearRect(0, 0, 1920, 1080) //clears canvas
+    cloudsAnimations = setInterval(drawCloudyWeather, 1000/60) //sets cloudyAnimations to run @ 60fps
 }
 
 function drawCloudyWeather() {

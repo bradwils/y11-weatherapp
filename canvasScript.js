@@ -37,8 +37,8 @@ function getCanvasSize() {
 
 }
 
-function loadImages() {
-    lightning1.src = "Canvas Assets/lightning 600 2.png"
+function loadImages() { //defines all of the images to be used
+    lightning1.src = "Canvas Assets/lightning 600 2.png"  
     rainyClouds.src = "Canvas Assets/rainyclouds.png"
     thunderClouds.src = "Canvas Assets/thunderClouds.png"
     snowClouds.src = "Canvas Assets/snowclouds.png"
@@ -54,8 +54,6 @@ function loadImages() {
     drizzleRain2.src = "Canvas Assets/drizzleRain.png"
     console.log('images loaded')
 }
-
-
 
 
 function changeWeather(weather) {

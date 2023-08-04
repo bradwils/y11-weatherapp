@@ -3,12 +3,12 @@
 //setup frame-based animation call
 
 //call animations
-var clearAnimations;
+var clearAnimations; //defines clearAnimations glboally so it can be called elsewhere
 
 function prepareClearWeatherCanvas() {
-    console.log('running prepareClearWeatherCanvas')
-    ctx.clearRect(0, 0, 1920, 1080)
-    clearAnimations = setInterval(drawClearWeather, 1000/30)
+    // console.log('running prepareClearWeatherCanvas') //debug
+    ctx.clearRect(0, 0, 1920, 1080) //clears canvas
+    clearAnimations = setInterval(drawClearWeather, 1000/30) //sets animation to run @ 30fps
     //for above; there are no animations? 
     //add fade-in for text + 
 
