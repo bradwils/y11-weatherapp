@@ -8,7 +8,7 @@
 
 
 <body onload="clearRecent()">
-    <!-- this div is the top of the page, the header with thte search bar. -->
+    <!-- this div is the top of the page, the header with the search bar. -->
     <table id="headerLogoSearchTable">
         <tr>
             <td>
@@ -18,6 +18,9 @@
                 <input class = "autocomplete" id="searchbar" placeholder="Search for a location's weather here!..."></input>
                 <button id="searchBtn" onclick="barQuery()">Go!</button>
                 <!--  in the final version, remove the debug code and change naem to 'getWeatherSearch;' -->
+            </td>
+            <td>
+                <button id="userManualBtn" onclick="location.href='userManual.html'">User Manual</button>
             </td>
         </tr>
     </table>
