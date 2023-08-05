@@ -1,7 +1,6 @@
 // gets search bar input, and based of that we'll make it run commands. this is for testing purposes with the canvas.
 // it automatically CONVERTS THE INPUT into LOWERCASE, so MAKE SURE to write you 'checks' in LOWERCASE.
 
-var cmds = ['help', 'size', 'update', 'stylewidth', 'newframe', "width (don't bother with it rn)" ]
 var barInput; //can be made local
 var recent = [];
 var recentInputSplit = [];
@@ -9,7 +8,7 @@ var recentInputCount;
 var recentInput;
 var recentDisplay = document.getElementById("recentResult");
 
-function clearRecent() {
+function clearRecent() { //clears all recent results
     document.getElementById("recentResult").disabled = true;
     for (i = 0; i < 10; i++) {
         recent[i] = "";
@@ -17,15 +16,59 @@ function clearRecent() {
 }
 
 function barQuery() {
+    var overrideWeather;
     barInput = (document.getElementById('searchbar').value).toLowerCase();
     console.log('barInput: ' + barInput)
-    apiUpdate(barInput);
+    if (barInput.split(' ')[0] == 'override') {
+        console.log('override! ' + barInput.split(' ')[1])
 
-    recentInput = document.getElementById("searchbar").value; //for recent searches
-    document.getElementById('searchbar').value = ''; //last action is the searchbar being cleared.
+        switch (barInput.split(' ')[1]) { //using the passed parameter 'weather'
+            case 'Rain': //if weather = rain'
+                prepareRainWeatherCanvas()
+                currentCanvasWeather = 'rain';
+                break; //stop checking
+            case 'Thunderstorm':
+                prepareThunderWeatherCanvas()
+                console.log('thunder')
+                currentCanvasWeather = 'thunder';
+                break;
+            case 'Snow':
+                console.log('snow')
+                prepareSnowAnimations()
+                currentCanvasWeather = 'snow';
+                break;
+            case 'Clear':
+                prepareClearWeatherCanvas()
+                console.log('clear')
+                currentCanvasWeather = 'clear';
+                break;
+            case 'Drizzle':
+                prepareDrizzleRainWeatherCanvas()
+                console.log('drizzle')
+                currentCanvasWeather = 'drizzle';
+                break;
+            case 'Clouds':
+                prepareCloudyWeatherCanvas()
+                console.log('cloudy')
+                currentCanvasWeather = 'clouds';
+                break;
+            default:
+                currentCanvasWeather = 'else'
+                ctxMainText.fillText((localName + ': ' + currentWeather + ', ' + currentTemp), 100, (canvas.height - 100))
+
+                //just make it so then it shows the wearther thing, and specify that it needs to be refreshed between different weather ocnditioncs cuz im not runnign all the bullshit clearinterval stuff
+        }
+
+        changeWeather(overrideWeather) //if the first character is a slash 
+    console.log('slash')
+    } else {
+        apiUpdate(barInput);
+        recentInput = document.getElementById("searchbar").value; //for recent searches
+        document.getElementById('searchbar').value = ''; //last action is the searchbar being cleared.
+}
 }
 
-function THIS_PEIEC_OF_TEXT_STOPS_DEBUG_BAR_FROM_WORKING_AND_YOU_CAN_REMOVE_IT_WHEN_YOU_HAVE_A_REGULER_BAR_WORKING_debugGetBar() {
+function THIS_PEIEC_OF_TEXT_STOPS_DEBUG_BAR_FROM_WORKING_AND_YOU_CAN_REMOVE_IT_WHEN_YOU_HAVE_A_REGULER_BAR_WORKING_debugGetBar() { //old debug bar
     barInput = (document.getElementById('searchbar').value).toLowerCase();
     splitInput = barInput.split(' ');
     console.log('barInput: ' + barInput)
@@ -63,10 +106,6 @@ function THIS_PEIEC_OF_TEXT_STOPS_DEBUG_BAR_FROM_WORKING_AND_YOU_CAN_REMOVE_IT_W
     recentInput = document.getElementById("searchbar").value; //for recent searches
     document.getElementById('searchbar').value = ''; //last action is the searchbar being cleared.
 
-}
-
-function help() {
-    console.log('commands: ' + cmds)
 }
 
 function updateRecentList() { /* defines the function to update the recent searches. Leaving this here since 
@@ -109,7 +148,7 @@ function updateRecentList() { /* defines the function to update the recent searc
     "\n" + "  " + recent[9];
 }
 
-barInput = document.getElementById("searchbar")
+barInput = document.getElementById("searchbar")//barINput shortcut 
 barInput.addEventListener("keypress", function(event) {
     if (event.key === "Enter") { //if enter key is pressed
         document.getElementById('searchBtn').click(); //just clicks the search button

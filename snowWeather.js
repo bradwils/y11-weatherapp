@@ -71,7 +71,7 @@ function snowCopyFade() {
 
 //upon snow being initially called, it runs this.
 function prepareSnowAnimations() {
-    console.log('running prepareSnowAnimations')
+    // console.log('running prepareSnowAnimations') //debug
     ctx.clearRect(0, 0, 1920, 1080) //clears canvas
     updateSnow = setInterval(moveSnow, 1000/60) //starts the snow movement loop.
     snowAnimations = setInterval(drawSnowAnimation, 1000/30) //starts the frame-drawing loop.

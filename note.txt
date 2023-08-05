@@ -1,0 +1,19 @@
+if you would like to view the raw data from the API manually, you can use this link, replacing <QUERY> with a location that you want to test. 
+
+https://api.openweathermap.org/data/2.5/weather?q=<QUERY>&appid=de4315905984c51cb8f1bb4c23c949c0&units=metric
+
+I would also suggest downloding a JSON formatter, I used this one (it makes it significantly easier to read).
+
+https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa?hl=en
+
+Since this program is weather dependent, i've provided overrides incase you would like to test out the other existing functions, as the weather type is decided by the APi and is out of my control. To force override a location, do override <weather>.
+
+Weather options are:
+Clear
+Cloudy 
+Drizzle 
+Rain 
+Snow 
+Thunder
+
+these are CASE SENSETIVE (must be 'Clear' not 'clear' or 'clEar' etc)

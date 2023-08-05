@@ -67,7 +67,7 @@ function changeWeather(weather) {
         clearInterval(updateThunderRain2);
         clearInterval(thunderAnimations);
         clearInterval(lightningAnimation);
-    } else if (currentCanvasWeather == 'snow') {
+    } else if (currentCanvasWeather == 'Snow') {
         clearInterval(updateSnow);
         clearInterval(snowAnimations);
     } else if (currentCanvasWeather == 'Clear') {

@@ -9,19 +9,19 @@ var rainAnimations;
 
 function rain1yadjustment() {
     if (rain1y < 300 && rain1Opacity <1) { //threshold for when rain1 starts to fade out
-        rain1Opacity = rain1Opacity + 0.03;
+        rain1Opacity = rain1Opacity + 0.03; //up opacity by 0.05
     } else {
-        if (rain1Opacity >= 0.05) {
-            rain1Opacity = rain1Opacity - 0.03;
+        if (rain1Opacity >= 0.05) { //if opacity is more than 0.05 (pretty much 0)
+            rain1Opacity = rain1Opacity - 0.03; //down by 0.03
         } else {
-            rain1y = 50
+            rain1y = 50 //reset rainy
         }
     }
-    rain1y=rain1y + 3;
+    rain1y=rain1y + 3; //always adjust y value by 3
 }
 
 
-function rain2yadjustment() {
+function rain2yadjustment() { //same as rain1yadjustment but for rain2
     if (rain2y < 300 && rain2Opacity <1) { //threshold for when rain2 starts to fade out
         rain2Opacity = rain2Opacity + 0.03;
     } else {
@@ -42,8 +42,8 @@ function rain2yadjustment() {
 
 
 function prepareRainWeatherCanvas() {
-    console.log('running prepareRainWeatherCanvas')
-    ctx.clearRect(0, 0, 1920, 1080)
+    // console.log('running prepareRainWeatherCanvas') //debug
+    ctx.clearRect(0, 0, 1920, 1080) //reset frame
     updateRain1 = setInterval(rain1yadjustment, 1000/60) //SETUP THE RAIN1 Y ADJUSTMENT LOOP
     updateRain2 = setInterval(rain2yadjustment, 1000/60) //SETUP THE RAIN2 Y ADJUSTMENT LOOP
     rainAnimations = setInterval(drawRainWeather, 1000/60) //SETUP THE ANIMATION LOOP
@@ -51,7 +51,7 @@ function prepareRainWeatherCanvas() {
 
 
 function drawRainWeather() { //beginning the rain animations
-    ctx.clearRect(0, 0, 1920, 1080)
+    ctx.clearRect(0, 0, 1920, 1080) //clear frame
     ctxMainText.fillText((localName + ': ' + currentWeather + ', ' + currentTemp + '°'), 100, (canvas.height - 100)) //drew text
 
     ctx.globalAlpha = rain1Opacity;
@@ -64,9 +64,6 @@ function drawRainWeather() { //beginning the rain animations
     ctx.drawImage(rainyClouds, 100, cloudY) //draw clouds
 }
 
-function animateFadeOutRainWeather() {
-
-}
 // same as animeRainWeather function, but replace the global alpha values with a value that loops every time it runs lowering the value to 0 over about 0.5 seconds.
 
 
