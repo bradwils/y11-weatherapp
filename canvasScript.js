@@ -5,9 +5,7 @@ var canvas = document.querySelector('canvas');
 var cloudY = 100
 
 const ctx = canvas.getContext('2d');
-const rain2ctx = canvas.getContext('2d');
 const ctxMainText = canvas.getContext('2d')
-const sunCtx = canvas.getContext('2d');
 canvas.width = 1920;
 canvas.height = 1080;
 
@@ -78,8 +76,6 @@ function changeWeather(weather) {
         clearInterval(drizzleAnimations);
     } else if (currentCanvasWeather == 'Clouds') {
         clearInterval(cloudsAnimations);
-    } else if (currentCanvasWeather == 'else') {
-        clearInterval(elseAnimations);
     }
 
     ctx.clearRect(0, 0, 1920, 1080) //clears the canvasß
@@ -115,13 +111,14 @@ function changeWeather(weather) {
             currentCanvasWeather = 'Clouds';
             break;
         default:
-            currentCanvasWeather = 'else'
+            currentCanvasWeather = 'Else'
             ctxMainText.fillText((localName + ': ' + currentWeather + ', ' + currentTemp), 100, (canvas.height - 100))
+            // add another little bit of text under weather text that alerts that this weather scenrio doesn't have an animation
     }
 }
 
 loadImages()
-
+var x = 0;
 function slowCloudWobble() {
     x = x + 0.0175;
     cloudY = Math.floor(Math.cos(x)*20)

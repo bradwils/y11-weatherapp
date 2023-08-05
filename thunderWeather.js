@@ -19,7 +19,7 @@ function rndNum(max) {
     return(Math.floor(Math.random() * max));
 }
 
-function ThunderRain1yAdjustment() { // --> 
+function ThunderRain1yAdjustment() { // same code from rain scenario for both rain adjusments
     if (thunderRain1y < 600 && thunderRain1Opacity <1) { //threshold for when rain1 starts to fade out
         thunderRain1Opacity = thunderRain1Opacity + 0.04;
     } else {
@@ -56,7 +56,7 @@ function randomLightningX() {
 function callLightning() {
     lightningOpacity = 1;
     activeLightning = true;
-    lightningX = randomLightningX();
+    lightningX = randomLightningX(); //returns a randomized x value for the lightning's position. really neat.
 }
 //if random number = x, then change opacity of lightning.
 
@@ -84,17 +84,14 @@ function drawThunderWeather() { //beginning the rain animations
     ctx.globalAlpha = 1; //changes opacity for any further images to the default 0.
     ctx.drawImage(thunderClouds, 100, cloudY) //draw clouds
 
-    if (activeLightning == true) {
-        if (lightningOpacity < 0.05) {
-            activeLightning = false;
-        } else {
-            lightningOpacity = lightningOpacity - 0.1
-            ctx.globalAlpha = lightningOpacity;
-            ctx.drawImage(lightning1, lightningX, thunderClouds.height - 100)
-            ctx.globalAlpha = 1;
+    if (activeLightning == true) { //if there's lightning
+        if (lightningOpacity < 0.05) { //if less than 5% visiblity
+            activeLightning = false; //disable
+        } else { //otherwise (if  <5% visiblity)
+            lightningOpacity = lightningOpacity - 0.1 //make it less opaque
+            ctx.globalAlpha = lightningOpacity; //update opacity to match var
+            ctx.drawImage(lightning1, lightningX, thunderClouds.height - 100) //draw it
+            ctx.globalAlpha = 1; //reset alpha level
         }
     }
-
-
-    // ctx.drawImage(lightning1, randomLightningX(), (thunderClouds.height - 100)) //draw rain
 }

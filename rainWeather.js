@@ -33,16 +33,10 @@ function rain2yadjustment() { //same as rain1yadjustment but for rain2
     }
     rain2y=rain2y + 5;
 }
-
-
-//there seems to be some weird flickering. aside from that it works.
-
-//we need 1 function for defining all the elements and initiate the loops,
-// another to control the drawing of any element that needs to be draw every frame for the animations.
+//wow this is inefficient and terrible why did i use 2 rain assets too hahah rofl xd 
 
 
 function prepareRainWeatherCanvas() {
-    // console.log('running prepareRainWeatherCanvas') //debug
     ctx.clearRect(0, 0, 1920, 1080) //reset frame
     updateRain1 = setInterval(rain1yadjustment, 1000/60) //SETUP THE RAIN1 Y ADJUSTMENT LOOP
     updateRain2 = setInterval(rain2yadjustment, 1000/60) //SETUP THE RAIN2 Y ADJUSTMENT LOOP
@@ -63,8 +57,3 @@ function drawRainWeather() { //beginning the rain animations
     ctx.globalAlpha = 1; //changes opacity for any further images to the default 0.
     ctx.drawImage(rainyClouds, 100, cloudY) //draw clouds
 }
-
-// same as animeRainWeather function, but replace the global alpha values with a value that loops every time it runs lowering the value to 0 over about 0.5 seconds.
-
-
-// MAKE ANOTHER FUNCTION THAT STOPS THE ANIMATERAINWEATHER FUNCTION AND RUNS ITS OWN THAT MAKES EVERYTHING SLOWLEY TRANSPARENT INSTEAD OF THE PREDIFINED GLOBALALPHA LEVELS THAT ARE DEFINED HERE

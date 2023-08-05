@@ -1,6 +1,3 @@
-// gets search bar input, and based of that we'll make it run commands. this is for testing purposes with the canvas.
-// it automatically CONVERTS THE INPUT into LOWERCASE, so MAKE SURE to write you 'checks' in LOWERCASE.
-
 var barInput; //can be made local
 var recent = [];
 var recentInputSplit = [];
@@ -16,97 +13,77 @@ function clearRecent() { //clears all recent results
 }
 
 function barQuery() {
-    var overrideWeather;
     barInput = (document.getElementById('searchbar').value).toLowerCase();
     console.log('barInput: ' + barInput)
-    if (barInput.split(' ')[0] == 'override') {
+    if (barInput.split(' ')[0] == 'override') { //this is the 'override' code for demonstration purposes
+
         console.log('override! ' + barInput.split(' ')[1])
 
-        switch (barInput.split(' ')[1]) { //using the passed parameter 'weather'
-            case 'Rain': //if weather = rain'
-                prepareRainWeatherCanvas()
-                currentCanvasWeather = 'rain';
-                break; //stop checking
-            case 'Thunderstorm':
-                prepareThunderWeatherCanvas()
-                console.log('thunder')
-                currentCanvasWeather = 'thunder';
-                break;
-            case 'Snow':
-                console.log('snow')
-                prepareSnowAnimations()
-                currentCanvasWeather = 'snow';
-                break;
-            case 'Clear':
-                prepareClearWeatherCanvas()
-                console.log('clear')
-                currentCanvasWeather = 'clear';
-                break;
-            case 'Drizzle':
-                prepareDrizzleRainWeatherCanvas()
-                console.log('drizzle')
-                currentCanvasWeather = 'drizzle';
-                break;
-            case 'Clouds':
-                prepareCloudyWeatherCanvas()
-                console.log('cloudy')
-                currentCanvasWeather = 'clouds';
-                break;
-            default:
-                currentCanvasWeather = 'else'
-                ctxMainText.fillText((localName + ': ' + currentWeather + ', ' + currentTemp), 100, (canvas.height - 100))
-
-                //just make it so then it shows the wearther thing, and specify that it needs to be refreshed between different weather ocnditioncs cuz im not runnign all the bullshit clearinterval stuff
+        if (currentCanvasWeather == 'Rain') {
+            clearInterval(updateRain1)
+            clearInterval(updateRain2)
+            clearInterval(rainAnimations)
+        } else if (currentCanvasWeather == 'Thunder') {
+            clearInterval(updateThunderRain1);
+            clearInterval(updateThunderRain2);
+            clearInterval(thunderAnimations);
+            clearInterval(lightningAnimation);
+        } else if (currentCanvasWeather == 'Snow') {
+            clearInterval(updateSnow);
+            clearInterval(snowAnimations);
+        } else if (currentCanvasWeather == 'Clear') {
+            clearInterval(clearAnimations);
+        } else if (currentCanvasWeather == 'Drizzle') {
+            clearInterval(updateDrizzleRain1);
+            clearInterval(updateDrizzleRain2);
+            clearInterval(drizzleAnimations);
+        } else if (currentCanvasWeather == 'Clouds') {
+            clearInterval(cloudsAnimations);
         }
 
-        changeWeather(overrideWeather) //if the first character is a slash 
-    console.log('slash')
+        switch (barInput.split(' ')[1]) { //using the passed parameter 'override'
+            case 'rain': //if weather = rain'
+                prepareRainWeatherCanvas()
+                currentCanvasWeather = 'Rain';
+                break; //stop checking
+            case 'thunderstorm':
+                prepareThunderWeatherCanvas()
+                console.log('thunder')
+                currentCanvasWeather = 'Thunder';
+                break;
+            case 'snow':
+                console.log('snow!')
+                prepareSnowAnimations()
+                currentCanvasWeather = 'Snow';
+                break;
+            case 'clear':
+                prepareClearWeatherCanvas()
+                console.log('clear')
+                currentCanvasWeather = 'Clear';
+                break;
+            case 'drizzle':
+                prepareDrizzleRainWeatherCanvas()
+                console.log('drizzle')
+                currentCanvasWeather = 'Drizzle';
+                break;
+            case 'clouds':
+                prepareCloudyWeatherCanvas()
+                console.log('cloudy')
+                currentCanvasWeather = 'Clouds';
+                break;
+            default:
+                currentCanvasWeather = 'Else'
+                ctxMainText.fillText((localName + ': ' + currentWeather + ', ' + currentTemp), 100, (canvas.height - 100))
+                //just make it so then it shows the wearther thing, and specify that it needs to be refreshed between different weather ocnditioncs cuz im not runnign all the bullshit clearinterval stuff
+        }
+        //end of override code
     } else {
-        apiUpdate(barInput);
+        apiUpdate(barInput); //send bar content (search term) for api request 
         recentInput = document.getElementById("searchbar").value; //for recent searches
         document.getElementById('searchbar').value = ''; //last action is the searchbar being cleared.
 }
 }
 
-function THIS_PEIEC_OF_TEXT_STOPS_DEBUG_BAR_FROM_WORKING_AND_YOU_CAN_REMOVE_IT_WHEN_YOU_HAVE_A_REGULER_BAR_WORKING_debugGetBar() { //old debug bar
-    barInput = (document.getElementById('searchbar').value).toLowerCase();
-    splitInput = barInput.split(' ');
-    console.log('barInput: ' + barInput)
-
-    if (barInput == 'help') {
-        help();
-        console.log('ran help')
-    }
-    else if (barInput == 'size') {
-        getCanvasSize();
-        console.log('ran canvas size')
-    } 
-    else if (barInput == 'update') {
-        updateCanvas();
-    }
-    else if (barInput == 'stylewidth') {
-        styleWidth();
-        console.log('ran stylewidth')
-    }
-    else if (barInput == 'newframe') {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        console.log('ran newframe')
-    }
-    else if (splitInput[0] == 'width') {
-        changeWidth(splitInput[1]);
-        console.log('ran width')
-    }
-    else if (splitInput[0] == 'weather') {
-        changeWeather(splitInput[1]);
-        console.log('ran changeWeather with the param ' + splitInput[1])
-    } else {
-        APIUpdate(barInput)
-        console.log('APIUpdate ran')
-    }
-    recentInput = document.getElementById("searchbar").value; //for recent searches
-    document.getElementById('searchbar').value = ''; //last action is the searchbar being cleared.
-
-}
 
 function updateRecentList() { /* defines the function to update the recent searches. Leaving this here since 
     it's most relevent (instead of cluttering the htmlscript), but it gets called on the htmlscript after a 
