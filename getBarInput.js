@@ -14,10 +14,8 @@ function clearRecent() { //clears all recent results
 
 function barQuery() {
     barInput = (document.getElementById('searchbar').value).toLowerCase();
-    console.log('barInput: ' + barInput)
     if (barInput.split(' ')[0] == 'override') { //this is the 'override' code for demonstration purposes
 
-        console.log('override! ' + barInput.split(' ')[1])
 
         if (currentCanvasWeather == 'Rain') {
             clearInterval(updateRain1)
@@ -48,33 +46,27 @@ function barQuery() {
                 break; //stop checking
             case 'thunderstorm':
                 prepareThunderWeatherCanvas()
-                console.log('thunder')
                 currentCanvasWeather = 'Thunder';
                 break;
             case 'snow':
-                console.log('snow!')
                 prepareSnowAnimations()
                 currentCanvasWeather = 'Snow';
                 break;
             case 'clear':
                 prepareClearWeatherCanvas()
-                console.log('clear')
                 currentCanvasWeather = 'Clear';
                 break;
             case 'drizzle':
                 prepareDrizzleRainWeatherCanvas()
-                console.log('drizzle')
                 currentCanvasWeather = 'Drizzle';
                 break;
             case 'clouds':
                 prepareCloudyWeatherCanvas()
-                console.log('cloudy')
                 currentCanvasWeather = 'Clouds';
                 break;
             default:
                 currentCanvasWeather = 'Else'
                 ctxMainText.fillText((localName + ': ' + currentWeather + ', ' + currentTemp), 100, (canvas.height - 100))
-                //just make it so then it shows the wearther thing, and specify that it needs to be refreshed between different weather ocnditioncs cuz im not runnign all the bullshit clearinterval stuff
         }
         //end of override code
     } else {

@@ -11,6 +11,7 @@ canvas.height = 1080;
 
 ctxMainText.font = '50px Verdana' //main weather text size / font defined
 
+
 //DEFINING IMAGES
 const lightning1 = new Image();
 const rainyClouds = new Image();
@@ -28,13 +29,6 @@ const drizzleRain = new Image();
 const drizzleRain2 = new Image();
 
 
-function getCanvasSize() {
-
-    console.log('canvasWidth: ' + canvasWidth);
-    console.log('canvasHeight: ' + canvasHeight);
-
-}
-
 function loadImages() { //defines all of the images to be used
     lightning1.src = "Canvas Assets/lightning 600 2.png"  
     rainyClouds.src = "Canvas Assets/rainyclouds.png"
@@ -50,7 +44,6 @@ function loadImages() { //defines all of the images to be used
     smallcloud2.src = "Canvas Assets/smallcloud2.png"
     drizzleRain.src = "Canvas Assets/drizzleRain.png"
     drizzleRain2.src = "Canvas Assets/drizzleRain.png"
-    console.log('images loaded')
 }
 
 
@@ -87,32 +80,29 @@ function changeWeather(weather) {
             break; //stop checking
         case 'Thunderstorm':
             prepareThunderWeatherCanvas()
-            console.log('thunder')
             currentCanvasWeather = 'Thunder';
             break;
         case 'Snow':
-            console.log('snow')
             prepareSnowAnimations()
             currentCanvasWeather = 'Snow';
             break;
         case 'Clear':
             prepareClearWeatherCanvas()
-            console.log('clear')
             currentCanvasWeather = 'Clear';
             break;
         case 'Drizzle':
             prepareDrizzleRainWeatherCanvas()
-            console.log('drizzle')
             currentCanvasWeather = 'Drizzle';
             break;
         case 'Clouds':
             prepareCloudyWeatherCanvas()
-            console.log('cloudy')
             currentCanvasWeather = 'Clouds';
             break;
         default:
             currentCanvasWeather = 'Else'
             ctxMainText.fillText((localName + ': ' + currentWeather + ', ' + currentTemp), 100, (canvas.height - 100))
+            ctxMainText.fillText(('The weather scenario (' + currentWeather + ') is not in the scenario list.'), 100, (canvas.height - -40))
+
             // add another little bit of text under weather text that alerts that this weather scenrio doesn't have an animation
     }
 }

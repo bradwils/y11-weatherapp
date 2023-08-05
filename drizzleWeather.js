@@ -37,7 +37,6 @@ function drizzleRain2yAdjustment() { // --> drizzleRain2yAdjustment
 
 
 function prepareDrizzleRainWeatherCanvas() {
-    console.log('running prepareRainWeatherCanvas')
     ctx.clearRect(0, 0, 1920, 1080) //clear canvas
     updateDrizzleRain1 = setInterval(drizzleRain1yAdjustment, 1000/60) //SETUP THE RAIN1 Y ADJUSTMENT LOOP
     updateDrizzleRain2 = setInterval(drizzleRain2yAdjustment, 1000/60) //SETUP THE RAIN2 Y ADJUSTMENT LOOP

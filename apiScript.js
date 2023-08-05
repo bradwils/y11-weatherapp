@@ -28,15 +28,11 @@ var urlPart2 = '&appid=de4315905984c51cb8f1bb4c23c949c0&units=metric' //second h
 // the reason for two parts in the url is because in the middle, the user's location query will be placed. This makes sure that it's in the right format for the APi to handle it.
 
 async function apiUpdate(location) { //needs search functionality
-    // console.log('APIUpdate started') //DEBUG
     apiURL = urlPart1 + location + urlPart2; //URl p1/2 and query to create the full URL that is queried
-    // console.log('apiURL: '+ apiURL) //DEBUG
     response = await fetch(apiURL);  //fetchs the info from api, and it's been 'promised' a response from the api, and waits for it. when it's been recieved, it will continue to the next line.
     data = await response.json() //await means that it has been 'promised' a response of data, which is currently being converted form plain text into a json format (readable by computer)
-    // console.log('data gotten') //DEBUG
 
     if (data.cod == 404) { //if the error code is 404 (ie the location is invalid)
-        // console.log('404 error') //debug
         alert('Invalid location. Please check the spelling and try again.')
     } else { //IF NO ERROR CODE, IE THE REQUEST IS SUCCESSFUL
         for (i=0; i < 9; i++) {  // 10 times (for earch history array entry)
@@ -48,8 +44,6 @@ async function apiUpdate(location) { //needs search functionality
             updateRecentList() //update recent list
         } //otherwise it won't, as the result has matched one of the recent inputs.
         setAPIShortcuts() //sets API shortcuts (binds them to vars)
-        console.log('APIUpdate finished')
-        // logApiShortcuts() //DEBUG
         changeWeather(currentWeather) //changes the weather, parsing the current weather
         updateMapURL() //updates the URl of the map to display new location
     }
@@ -69,20 +63,4 @@ function setAPIShortcuts() { //logging api info to variables
     humidityPercent = data.main.humidity;
     LatCoordinates = data.coord.lat;
     LonCoordinates = data.coord.lon;
-}
-
-function logApiShortcuts() { //debug
-    console.log('localName: ' + localName);
-    console.log('currentWeather: ' + currentWeather);
-    console.log('description: ' + description);
-    console.log('minTemp: ' + minTemp);
-    console.log('maxTemp: ' + maxTemp);
-    console.log('currentTemp: ' + currentTemp);
-    console.log('feelslike: ' + feelslike);
-    console.log('windSpeed: ' + windSpeed);
-    console.log('windDir: ' + windDir);
-    console.log('localTime: ' + localTime);
-    console.log('humidityPercent: ' + humidityPercent);
-    console.log('LatCoordinates: ' + LatCoordinates);
-    console.log('LonCoordinates: ' + LonCoordinates);
 }

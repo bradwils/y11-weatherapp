@@ -62,7 +62,6 @@ function callLightning() {
 
 
 function prepareThunderWeatherCanvas() {
-    console.log('running prepareThunderWeatherCanvas')
     ctx.clearRect(0, 0, 1920, 1080)
     updateThunderRain1 = setInterval(ThunderRain1yAdjustment, 1000/60) //SETUP THE RAIN1 Y ADJUSTMENT LOOP
     updateThunderRain2 = setInterval(ThunderRain2yAdjustment, 1000/60) //SETUP THE RAIN2 Y ADJUSTMENT LOOP

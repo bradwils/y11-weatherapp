@@ -11,7 +11,6 @@ var snowAnimations;
 var updateSnow;
 
 function moveSnow() {
-    // console.log('running moveSnow') //debug
     snowY = snowY + 1;
     copySnowY = copySnowY + 1  //moves both snows at 1 pixel per frame
     //moves both snows at 1 pixel per frame
@@ -71,8 +70,6 @@ function snowCopyFade() {
 
 //upon snow being initially called, it runs this.
 function prepareSnowAnimations() {
-    console.log('snow prep')
-    // console.log('running prepareSnowAnimations') //debug
     ctx.clearRect(0, 0, 1920, 1080) //clears canvas
     updateSnow = setInterval(moveSnow, 1000/60) //starts the snow movement loop.
     snowAnimations = setInterval(drawSnowAnimation, 1000/30) //starts the frame-drawing loop.
@@ -81,7 +78,6 @@ function prepareSnowAnimations() {
 //snow shit aint workin idk why
 
 function drawSnowAnimation() {
-    console.log('snowAnim')
     ctx.clearRect(0, 0, 1920, 1080)
     ctxMainText.fillText((localName + ': ' + currentWeather + ', ' + currentTemp + '°'), 100, (canvas.height - 100)) //drew text
     ctx.globalAlpha = snowOpacity; //sets alpha to the opacity of the snow
