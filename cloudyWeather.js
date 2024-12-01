@@ -2,7 +2,7 @@ function prepareCloudyWeatherCanvas() {
     ctx.clearRect(0, 0, 1920, 1080) //clears canvas
     cloudsAnimations = setInterval(drawCloudyWeather, 1000/60) //sets cloudyAnimations to run @ 60fps
 }
-
+ 
 function drawCloudyWeather() {
     ctx.globalAlpha = 1; //makes sure everything is fully visible
     ctx.clearRect(0, 0, 1920, 1080) //clears the canvas

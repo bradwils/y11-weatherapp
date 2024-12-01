@@ -1,7 +1,7 @@
 var currentCanvasWeather;
 var canvas = document.querySelector('canvas');
 
-
+ 
 var cloudY = 100
 
 const ctx = canvas.getContext('2d');

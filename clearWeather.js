@@ -4,7 +4,7 @@ function prepareClearWeatherCanvas() {
     ctx.clearRect(0, 0, 1920, 1080) //clears canvas
     clearAnimations = setInterval(drawClearWeather, 1000/30) //sets animation to run @ 30fps
 }
-
+ 
 function drawClearWeather() {
     ctx.clearRect(0, 0, 1920, 1080) //clears the canvas
     ctx.globalAlpha = 1; //makes sure everything is fully visible

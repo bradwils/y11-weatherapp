@@ -8,7 +8,7 @@ var updateRain2;
 var rainAnimations;
 
 function rain1yadjustment() {
-    if (rain1y < 300 && rain1Opacity <1) { //threshold for when rain1 starts to fade out
+    if (rain1y < 300 && rain1Opacity < 1) { //threshold for when rain1 starts to fade out
         rain1Opacity = rain1Opacity + 0.03; //up opacity by 0.05
     } else {
         if (rain1Opacity >= 0.05) { //if opacity is more than 0.05 (pretty much 0)
@@ -17,12 +17,12 @@ function rain1yadjustment() {
             rain1y = 50 //reset rainy
         }
     }
-    rain1y=rain1y + 3; //always adjust y value by 3
+    rain1y = rain1y + 3; //always adjust y value by 3
 }
 
 
 function rain2yadjustment() { //same as rain1yadjustment but for rain2
-    if (rain2y < 300 && rain2Opacity <1) { //threshold for when rain2 starts to fade out
+    if (rain2y < 300 && rain2Opacity < 1) { //threshold for when rain2 starts to fade out
         rain2Opacity = rain2Opacity + 0.03;
     } else {
         if (rain2Opacity >= 0.05) {
@@ -31,16 +31,16 @@ function rain2yadjustment() { //same as rain1yadjustment but for rain2
             rain2y = 0
         }
     }
-    rain2y=rain2y + 5;
+    rain2y = rain2y + 5;
 }
 //wow this is inefficient and terrible why did i use 2 rain assets too hahah rofl xd 
 
 
 function prepareRainWeatherCanvas() {
     ctx.clearRect(0, 0, 1920, 1080) //reset frame
-    updateRain1 = setInterval(rain1yadjustment, 1000/60) //SETUP THE RAIN1 Y ADJUSTMENT LOOP
-    updateRain2 = setInterval(rain2yadjustment, 1000/60) //SETUP THE RAIN2 Y ADJUSTMENT LOOP
-    rainAnimations = setInterval(drawRainWeather, 1000/60) //SETUP THE ANIMATION LOOP
+    updateRain1 = setInterval(rain1yadjustment, 1000 / 60) //SETUP THE RAIN1 Y ADJUSTMENT LOOP
+    updateRain2 = setInterval(rain2yadjustment, 1000 / 60) //SETUP THE RAIN2 Y ADJUSTMENT LOOP
+    rainAnimations = setInterval(drawRainWeather, 1000 / 60) //SETUP THE ANIMATION LOOP
 }
 
 
@@ -53,7 +53,7 @@ function drawRainWeather() { //beginning the rain animations
 
     ctx.globalAlpha = rain2Opacity; //CHANGES RAIN OPACITY 
     ctx.drawImage(rain2, 200, rain2y) //draw rain2
-    
+
     ctx.globalAlpha = 1; //changes opacity for any further images to the default 0.
     ctx.drawImage(rainyClouds, 100, cloudY) //draw clouds
 }

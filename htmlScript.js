@@ -9,7 +9,7 @@ function switchDiv() {
         mapDiv.style.display = 'none'; //hide map
     } else {
         updateMapURL() //update map when div is being shown; when it's hidden it won't update on first run, so i'll manually do it whenevr it's shown just to make sure.
-        recentQueriesDiv.style.display = 'none';    //hide recent queries
+        recentQueriesDiv.style.display = 'none'; //hide recent queries
         mapDiv.style.display = 'block'; //show map
     }
 }

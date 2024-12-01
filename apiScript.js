@@ -1,6 +1,6 @@
 var response; //the raw response from api
 var data; //the data from the api, in json format
-
+ 
 
 { //shortcut vars
 var localName; //local name of location

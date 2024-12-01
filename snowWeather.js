@@ -12,21 +12,21 @@ var updateSnow;
 
 function moveSnow() {
     snowY = snowY + 1;
-    copySnowY = copySnowY + 1  //moves both snows at 1 pixel per frame
+    copySnowY = copySnowY + 1 //moves both snows at 1 pixel per frame
     //moves both snows at 1 pixel per frame
     if (snowY == 500) { //this controls the y value that the snow begins the fadeout
-        fadeInSnow = setInterval(snowFade, 1000/30);
+        fadeInSnow = setInterval(snowFade, 1000 / 30);
         snowState = 'fadeout';
     } //once the snow hits a certain threshold, it calls in the fade funtion 'loop'.
 
     if (copySnowY == 550) { //this controls the y value that the snow begins the fadeout
-        fadeInSnowCopy = setInterval(snowCopyFade, 1000/30);
+        fadeInSnowCopy = setInterval(snowCopyFade, 1000 / 30);
         snowCopyState = 'fadeout';
     } //same as above.
 }
 
 function snowFade() {
-//FADE + MOVE THEN FADEIN
+    //FADE + MOVE THEN FADEIN
     //FADEOUT
     if (snowState == 'fadeout') { //checks for fadeoutstate
         snowOpacity = snowOpacity - 0.03; //lowers opacity
@@ -45,11 +45,11 @@ function snowFade() {
             snowOpacity = 1; //set to 1 (flat num)
         }
     }
-} 
+}
 
 //the below is IDENTICAL CODE, but just setup so it affects the second snow sprite.
 
-function snowCopyFade() { 
+function snowCopyFade() {
     if (snowCopyState == 'fadeout') { //checks for fadeoutstate
         snowCopyOpacity = snowCopyOpacity - 0.03; //lowers opacity
         if (snowCopyOpacity <= 0) { //if no longer visible
@@ -66,13 +66,13 @@ function snowCopyFade() {
             snowCopyOpacity = 1; //set to 1 (flat num)
         }
     }
-} 
+}
 
 //upon snow being initially called, it runs this.
 function prepareSnowAnimations() {
     ctx.clearRect(0, 0, 1920, 1080) //clears canvas
-    updateSnow = setInterval(moveSnow, 1000/60) //starts the snow movement loop.
-    snowAnimations = setInterval(drawSnowAnimation, 1000/30) //starts the frame-drawing loop.
+    updateSnow = setInterval(moveSnow, 1000 / 60) //starts the snow movement loop.
+    snowAnimations = setInterval(drawSnowAnimation, 1000 / 30) //starts the frame-drawing loop.
 }
 
 //snow shit aint workin idk why
@@ -84,8 +84,8 @@ function drawSnowAnimation() {
     ctx.drawImage(snowflakes, 200, snowY); //SNOW
     ctx.globalAlpha = snowCopyOpacity; //sets alpha to the opacity of the copy
     ctx.drawImage(snowflakes, 650, copySnowY); //COPYSNOW
-    
+
     ctx.globalAlpha = 1; //resets to 1
-    
+
     ctx.drawImage(snowClouds, 0, cloudY)
 }

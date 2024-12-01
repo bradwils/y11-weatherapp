@@ -73,13 +73,14 @@ function barQuery() {
         apiUpdate(barInput); //send bar content (search term) for api request 
         recentInput = document.getElementById("searchbar").value; //for recent searches
         document.getElementById('searchbar').value = ''; //last action is the searchbar being cleared.
-}
+    }
 }
 
 
-function updateRecentList() { /* defines the function to update the recent searches. Leaving this here since 
-    it's most relevent (instead of cluttering the htmlscript), but it gets called on the htmlscript after a 
-    successful request is sent through */
+function updateRecentList() {
+    /* defines the function to update the recent searches. Leaving this here since 
+       it's most relevent (instead of cluttering the htmlscript), but it gets called on the htmlscript after a 
+       successful request is sent through */
 
     recentInputSplit = barInput.split(''); //splits each character of user's search into an array
     recentInputSplit[0] = recentInputSplit[0].toUpperCase(); //sets first letter of array to upper case
@@ -105,21 +106,21 @@ function updateRecentList() { /* defines the function to update the recent searc
     recent[0] = recentInput;
 
     recentDisplay.innerHTML = "Recent searches" + //displays recent search results
-    "\n" + "  " + recent[0] +
-    "\n" + "  " + recent[1] +
-    "\n" + "  " + recent[2] +
-    "\n" + "  " + recent[3] +
-    "\n" + "  " + recent[4] +
-    "\n" + "  " + recent[5] +
-    "\n" + "  " + recent[6] +
-    "\n" + "  " + recent[7] +
-    "\n" + "  " + recent[8] +
-    "\n" + "  " + recent[9];
+        "\n" + "  " + recent[0] +
+        "\n" + "  " + recent[1] +
+        "\n" + "  " + recent[2] +
+        "\n" + "  " + recent[3] +
+        "\n" + "  " + recent[4] +
+        "\n" + "  " + recent[5] +
+        "\n" + "  " + recent[6] +
+        "\n" + "  " + recent[7] +
+        "\n" + "  " + recent[8] +
+        "\n" + "  " + recent[9];
 }
 
-barInput = document.getElementById("searchbar")//barINput shortcut 
-barInput.addEventListener("keypress", function(event) {
+barInput = document.getElementById("searchbar") //barINput shortcut 
+barInput.addEventListener("keypress", function (event) {
     if (event.key === "Enter") { //if enter key is pressed
         document.getElementById('searchBtn').click(); //just clicks the search button
-      }
+    }
 });
